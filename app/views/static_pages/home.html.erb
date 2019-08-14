@@ -1,0 +1,33 @@
+<div class="homeContent">
+
+</div>
+
+<script>
+  const refSearch = document.getElementsByClassName("refSearch")[0];
+  const oneSelect = document.getElementById("oneSelect");
+  const twoSelect = document.getElementById("twoSelect");
+
+
+//get input text
+// search button executes function based on
+// plug in all values to link, dont use if statement
+ refSearch.addEventListener("click", langSearch, false)
+   function langSearch() {
+     const inputTxt = document.getElementById("inputTxt").value;
+     const parsedTxt = inputTxt.replace(/\s+/g, '+');
+     const str = oneSelect.options[oneSelect.selectedIndex].text;
+     const str2 = twoSelect.options[twoSelect.selectedIndex].text;
+     const reverso = "https://context.reverso.net/translation/";
+     const translateUrl = reverso + str.toLowerCase() + "-" + str2.toLowerCase() + "/" + parsedTxt;
+      console.log(translateUrl);
+      $('.homeContent').load('grabber.php?url='+ translateUrl);
+      // $.get(translateUrl, function (data) {
+      //   txt = $(data).find('.text').html();
+      //   console.log(txt)
+      // $("").append(txt);
+      // });
+      // $(".homeContent").load("demo_test.txt");
+
+   }
+
+</script>

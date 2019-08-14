@@ -1,0 +1,72 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  margin: 0;
+  position: absolute;
+  background-color: black;
+  height: 300px;
+  width: 100%;
+}
+.topnav input[type=text] {
+  float: left;
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+.topnav .search-container button {
+
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+  float: left;
+}
+.topnav .search-container  {
+  float: left;
+  // background: red;
+}
+.topnav .langselect {
+  float: left;
+  // background: green;
+  padding: 0px 3px;
+
+}
+.topnav .langselect select {
+  float: left;
+  padding: 6px 10px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+.topnav .langselect span{
+  color: white;
+}
+.topnav .langselect .swap{
+  padding-top: 20px;
+  // background: orange;
+  width: 30px;
+  text-align: center;
+}
+.homeContent {
+  height: 60vh;
+  width: 30vw;
+  background: lightblue;
+  margin-top: 30vh;
+  z-index: 1;
+
+}
