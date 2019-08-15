@@ -8,7 +8,7 @@
   const twoSelect = document.getElementById("twoSelect");
 
 
-//get input text
+// get input text
 // search button executes function based on
 // plug in all values to link, dont use if statement
  refSearch.addEventListener("click", function(event){
@@ -27,17 +27,24 @@
       // $("").append(txt);
       // });
       // $(".homeContent").load("demo_test.txt");
+      // var str = "Visit W3Schools!";
+      // var n = str.search("Schools");
        $.ajax({
 
         url: "flash",
-        data: { data_value: JSON.stringify(translateUrl) },
+        data: { data_value: translateUrl },
         success: function(response)
            {
-             result = $(response).find("#myurl");
-            $(".homeContent").html(result);
+             result = $(response).find(".myurl");
+             result2 = $(response).find("#myurl1");
+            $(".homeContent").empty().append(result)
+            // $(".homeContent").append(result2)
            }
          });
 
+      setTimeout(function(){
+        const thing = document.getElementsByClassName("myurl")[0].innerText;
+      console.log(thing)}, 3000)
 
      });
 
