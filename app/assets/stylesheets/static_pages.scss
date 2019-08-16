@@ -64,9 +64,69 @@ body {
 }
 .homeContent {
   height: 60vh;
-  width: 30vw;
+  width: 39vw;
+  min-width: 650px;
+  max-width: 750px;
   background: lightblue;
   margin: 300px  auto;
   z-index: 1;
+}
+.highlight {
+  background: yellow;
+}
+.results {
+  background: teal;
+  width: 50%;
+  float: left;
+  margin-top: 0;
+  padding-bottom: 14px;
+  padding-top: 8px;
+}
+.results img{
+  width: 20px;
+  height: 20px;
+  padding-top: 10px;
+}
+.flresults {
+  background: pink;
+  width: 50%;
+  float: left;
+  margin-top: 0;
+  padding-bottom: 14px;
+  padding-top: 8px;
+
+}
+.flresults img{
+  width: 20px;
+  height: 20px;
+  padding-top: 10px;
+}
+.resultborder {
+
+  border-bottom: 1px dashed red;
+  position: relative;
+  overflow: auto;
+}
+.resultcut {
+
+  width: 90%;
+}
+
+@media screen and (max-width: 660px) {
+ .homeContent {
+   min-width: 100vw;
+ }
+ .flresults {
+   margin-left: 6px;
+   float: none;
+   width: 80%;
+ }
+ .results {
+   margin-left: 6px;
+   float: none;
+   width: 80%;
+
+
+ }
 
 }

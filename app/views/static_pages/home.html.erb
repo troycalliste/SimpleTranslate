@@ -8,10 +8,23 @@
   const twoSelect = document.getElementById("twoSelect");
 
 
+
+
+
 // get input text
 // search button executes function based on
 // plug in all values to link, dont use if statement
- refSearch.addEventListener("click", function(event){
+// Get the input field
+  const input = document.getElementById("inputTxt");
+
+   input.addEventListener("keyup", function(event) {
+     if (event.keyCode === 13) {
+       event.preventDefault();
+       refSearch.click();
+
+     }
+    });
+    refSearch.addEventListener("click", function(event){
      event.preventDefault()
      const inputTxt = document.getElementById("inputTxt").value;
      const parsedTxt = inputTxt.replace(/\s+/g, '+');
@@ -27,8 +40,11 @@
       // $("").append(txt);
       // });
       // $(".homeContent").load("demo_test.txt");
-      // var str = "Visit W3Schools!";
-      // var n = str.search("Schools");
+      function uniqArr(value, index, self) {
+        return self.indexOf(value) === index;
+       }
+
+
        $.ajax({
 
         url: "flash",
@@ -36,17 +52,70 @@
         success: function(response)
            {
              result = $(response).find(".myurl");
-             result2 = $(response).find("#myurl1");
+             result2 = $(response).find(".myarr");
             $(".homeContent").empty().append(result)
+            $(".homeContent").append(result2)
             // $(".homeContent").append(result2)
            }
          });
 
       setTimeout(function(){
         const thing = document.getElementsByClassName("myurl")[0].innerText;
-      console.log(thing)}, 3000)
+        const home = document.getElementsByClassName("homeContent")[0];
+        let french = document.getElementsByClassName("myarr")[0].innerText;
+        let finalfrench = document.getElementsByClassName("myarr")[0].innerHTML;
+        let n = thing.search(inputTxt);
+        let l = n + inputTxt.length;
+        console.log(n, l);
+        // home.innerHTML = thing.substring(0, n) + '<span style="font-style: italic">' + thing.substring(n, l) + '</span>' + thing.substring(l);
+        t = home.innerHTML
+        t = t.replace(new RegExp(inputTxt, 'g'), "<span style='background-color:rgba(255,255,0,0.3)'>$&</span>")
+        home.innerHTML = t
+        const frencharr = JSON.parse(french)
+        finalArr = frencharr.filter(uniqArr)
 
+        let f = home.innerHTML;
+        for (i = 0; i < finalArr.length; i++) {
+            f = f.replace(new RegExp(finalArr[i], 'g'), "<span style='background-color:rgba(255,255,0,0.3)'>$&</span>");
+            home.innerHTML = f;
+
+        }
+        $(".myarr").empty().append(finalArr.join(', '))
+        console.log(finalArr)
+
+        voiceFunc()
+
+
+      }, 3000)
      });
+
+     function voiceFunc() {
+      const voice = document.getElementsByClassName("voice");
+       for (var i = 0; i < voice.length; i++) {
+         console.log(i)
+         voice[i].setAttribute("id", ("item" + i));
+         voice[i].addEventListener('click', function(){
+          say = this.parentElement.getElementsByTagName('span')[0].innerText
+
+          if (say) {
+           console.log(say)
+           responsiveVoice.speak(say);
+          }
+         });
+      }
+
+     }
+     // function playVoice(event) {
+     //   var text = $(event.target);
+     //   console.log(text)
+     //
+     // }
+
+
+
+
+
+
 
 
 
