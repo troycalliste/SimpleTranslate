@@ -1,8 +1,11 @@
-<div class="homeContent">
+<div class="wordList">
 
+</div>
+<div class="homeContent">
 </div>
 
 <script>
+
   const refSearch = document.getElementsByClassName("refSearch")[0];
   const oneSelect = document.getElementById("oneSelect");
   const twoSelect = document.getElementById("twoSelect");
@@ -15,23 +18,63 @@
 // search button executes function based on
 // plug in all values to link, dont use if statement
 // Get the input field
+
+// const swapLang = document.getElementById("swapLang");
+// swapLang.addEventListener('click', function(){
+//   console.log("swapped")
+//   const oneSelect = document.getElementById( "oneSelect" );
+//   const twoSelect = document.getElementById( "twoSelect" );
+//   let oneLang = oneSelect.options[ oneSelect.selectedIndex ].value
+//   let twoLang = twoSelect.options[ twoSelect.selectedIndex ].value
+
+  $('#swapLang').click(function () {
+      let v1 = $('#oneSelect').val(),
+          v2 = $('#twoSelect').val();
+      $('#oneSelect').val(v2);
+      $('#twoSelect').val(v1);
+      refSearch.click();
+  });
+
+// })
+$('#swap').click(function () {
+    var v1 = $('#s1').val(),
+        v2 = $('#s2').val();
+    $('#s1').val(v2);
+    $('#s2').val(v1);
+
+});
+
+
+
+
+
+
+
+
+
   const input = document.getElementById("inputTxt");
 
    input.addEventListener("keyup", function(event) {
-     if (event.keyCode === 13) {
+     if (this.value == '' || this.value == this.defaultValue) {
+       return
+   } else if (event.keyCode === 13) {
        event.preventDefault();
        refSearch.click();
-
-     }
+      }
     });
     refSearch.addEventListener("click", function(event){
+     if (input.value == '' || input.value == this.defaultValue) {
+       return
+     }
      event.preventDefault()
      const inputTxt = document.getElementById("inputTxt").value;
+     const refContain = document.getElementsByClassName("homeContent")[0];
      const parsedTxt = inputTxt.replace(/\s+/g, '+');
      const str = oneSelect.options[oneSelect.selectedIndex].text;
      const str2 = twoSelect.options[twoSelect.selectedIndex].text;
      const reverso = "https://context.reverso.net/translation/";
      const translateUrl = reverso + str.toLowerCase() + "-" + str2.toLowerCase() + "/" + parsedTxt;
+     console.log(translateUrl)
       // console.log(translateUrl);
       // $('.homeContent').load('grabber.php?url='+ translateUrl);
       // $.get(translateUrl, function (data) {
@@ -40,11 +83,10 @@
       // $("").append(txt);
       // });
       // $(".homeContent").load("demo_test.txt");
+
       function uniqArr(value, index, self) {
         return self.indexOf(value) === index;
        }
-
-
        $.ajax({
 
         url: "flash",
@@ -52,9 +94,22 @@
         success: function(response)
            {
              result = $(response).find(".myurl");
-             result2 = $(response).find(".myarr");
+             result2 = $(response).find(".innerList");
+             refContain.style.display = "block";
+             newclss = document.getElementsByClassName("topnav")[0].className = "topnav " + str2.toLowerCase();
+            
+
+
+
+             // $(".topnav").css("background-size", "2400px 1300px")
+             // $(".topnav").css("background-position", " center")
+
             $(".homeContent").empty().append(result)
-            $(".homeContent").append(result2)
+            $(".wordList").empty().append(result2)
+            let french = document.getElementsByClassName("myarr")[0].innerText;
+            const frencharr = french.replace(/[\[\]']/g,'' ).replace(/"/g,"").split(", ");
+            finalArr = frencharr.filter(uniqArr)
+            document.getElementsByClassName("myarr")[0].innerHTML = finalArr
             // $(".homeContent").append(result2)
            }
          });
@@ -62,54 +117,118 @@
       setTimeout(function(){
         const thing = document.getElementsByClassName("myurl")[0].innerText;
         const home = document.getElementsByClassName("homeContent")[0];
-        let french = document.getElementsByClassName("myarr")[0].innerText;
+
         let finalfrench = document.getElementsByClassName("myarr")[0].innerHTML;
+        const exmpls = document.getElementsByClassName("myurl")[0];
+        const replaceHL = document.getElementsByClassName("resultcut");
+
+
         let n = thing.search(inputTxt);
         let l = n + inputTxt.length;
-        console.log(n, l);
+
         // home.innerHTML = thing.substring(0, n) + '<span style="font-style: italic">' + thing.substring(n, l) + '</span>' + thing.substring(l);
-        t = home.innerHTML
-        t = t.replace(new RegExp(inputTxt, 'g'), "<span style='background-color:rgba(255,255,0,0.3)'>$&</span>")
-        home.innerHTML = t
-        const frencharr = JSON.parse(french)
-        finalArr = frencharr.filter(uniqArr)
+        // t = exmpls.innerHTML
+        //
+        // tn = t.replace(new RegExp(inputTxt, 'g'), "<span style='background-color:rgba(255,255,0,0.3)'>" + inputTxt + "</span>")
+        // exmpls.innerHTML = tn
 
-        let f = home.innerHTML;
-        for (i = 0; i < finalArr.length; i++) {
-            f = f.replace(new RegExp(finalArr[i], 'g'), "<span style='background-color:rgba(255,255,0,0.3)'>$&</span>");
-            home.innerHTML = f;
 
-        }
-        $(".myarr").empty().append(finalArr.join(', '))
-        console.log(finalArr)
-
-        voiceFunc()
-
+        voiceFunc();
 
       }, 3000)
      });
+     // function fakeReplace(str, substr, newstr) {
+     //  return str.split(substr).join(newstr);
+     //  }
+     // function justtest() {
+     //
+     //
+     // }
 
-     function voiceFunc() {
-      const voice = document.getElementsByClassName("voice");
-       for (var i = 0; i < voice.length; i++) {
-         console.log(i)
-         voice[i].setAttribute("id", ("item" + i));
-         voice[i].addEventListener('click', function(){
-          say = this.parentElement.getElementsByTagName('span')[0].innerText
 
-          if (say) {
-           console.log(say)
-           responsiveVoice.speak(say);
-          }
-         });
-      }
-
+     function isEven(n) {
+        return n % 2 == 0;
      }
+     function muteHide(btn) {
+
+       if (responsiveVoice.isPlaying()) {
+         console.log("its playingggg");
+         setTimeout(function() {
+           muteHide(btn)
+         }, 500);
+      } else {
+        btn.style.display = "none";
+        return
+       }
+     }
+     function tryMute(str, say, full, spkr) {
+       // make listener function to hide it
+        if (say) { responsiveVoice.speak(say, spkr) }
+        str.addEventListener('click', function () {
+           this.style.display = "none";
+           responsiveVoice.cancel();
+        })
+        setTimeout(function() {         responsiveVoice.speak(sayFull, spkr);
+          }, 1000)
+        setTimeout(function() {
+             muteHide(str);
+          }, 2000)
+       };
+
+      function voiceFunc() {
+       const voice = document.getElementsByClassName("voice");
+       const mute = document.getElementsByClassName("mute");
+
+
+
+       for (var i = 0; i < voice.length; i++) {
+
+         console.log(i);
+         voice[i].setAttribute("id", (i));
+         mute[i].setAttribute("id", (i));
+
+
+         if (isEven(i)) {
+
+           voice[i].addEventListener('click', function(){
+             if (this.parentElement.getElementsByTagName('span')[0]) {
+               say = this.parentElement.getElementsByTagName('em')[0].innerText;
+             } else { say = " "}
+           sayFull = this.parentElement.innerText;
+           $('.mute').css('display','none')
+           m = document.getElementsByClassName('mute')[this.id];
+           m.style.display = "inline-block"
+           enm = "US English Male"
+           tryMute(m, say, sayFull, enm);
+           console.log(say)
+
+
+           })
+         } else if (!(isEven(i))) {
+           m = mute[i];
+           voice[i].addEventListener('click', function(){
+            if (this.parentElement.getElementsByTagName('span')[0]) {
+              say = this.parentElement.getElementsByTagName('a')[0].innerText;
+            } else { say = " "}
+           sayFull = this.parentElement.innerText
+           $('.mute').css('display','none')
+           m = document.getElementsByClassName('mute')[this.id];
+           m.style.display = "inline-block";
+           frf = "French Female"
+           tryMute(m, say, sayFull, frf);
+           })
+         }
+       }
+    }
+
+
      // function playVoice(event) {
      //   var text = $(event.target);
      //   console.log(text)
      //
      // }
+
+ //
 
 
 

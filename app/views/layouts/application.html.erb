@@ -7,43 +7,58 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application',  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
 
   <body>
+    <div class="lownav">
     <div class="topnav">
       <div class="search-container">
 
-        <input type="text" id="inputTxt" value="">
+        <input type="text" id="inputTxt">
         <button class="refSearch" type='button'><i class="fa fa-search"></i></button>
 
       </div>
       <div class="langselect">
-       <form action="/action_page.php">
+       <form>
+         <div class="selectWrap">
          <select id="oneSelect" name="language">
-            <option value="" selected>English</option>
-            <option value="">French</option>
-            <option value="">Spanish</option>
-            <option value="">Dutch</option>
+            <option selected>English</option>
+            <option>French</option>
+            <option>Spanish</option>
+            <option>Dutch</option>
+            <option>Arabic</option>
+            <option>Italian</option>
+            <option>Russian</option>
         </select>
+        </div>
       </form>
       </div>
       <div class="langselect">
         <div class="swap">
-          <span>to</span>
+          <span><img id="swapLang" src="https://img.icons8.com/ultraviolet/40/000000/synchronize.png"></span>
         </div>
       </div>
       <div class="langselect">
-       <form action="/action_page.php">
+
+       <form>
+         <div class="selectWrap">
          <select id="twoSelect" name="language">
 
-           <option value="">English</option>
-           <option value="" selected>French</option>
-            <option value="">Spanish</option>
-            <option value="">Dutch</option>
+           <option>English</option>
+           <option selected>French</option>
+            <option>Spanish</option>
+            <option>Dutch</option>
+            <option>Arabic</option>
+            <option>Italian</option>
+            <option>Russian</option>
         </select>
+        </div>
       </form>
       </div>
+    </div>
+    </div>
 
 
     <%= yield %>

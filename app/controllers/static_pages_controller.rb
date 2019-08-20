@@ -12,7 +12,9 @@ class StaticPagesController < ApplicationController
   def flash
 
     @ourUrl = params[:data_value]
-    doc = Nokogiri::HTML(RestClient.get(@ourUrl))
+    # "https://context.reverso.net/translation/french-english/j%27arrive"
+    # use this inside restclient.get()   URI.escape(@ourUrl))
+    doc = Nokogiri::HTML(RestClient.get(URI.escape(@ourUrl)))
     arr = []
     frarr = []
     harr = []
@@ -20,16 +22,17 @@ class StaticPagesController < ApplicationController
     @entries = entries.css('.src').css('.text')
     @frentries = entries.css('.trg')
     @entries.to_a.take(10).each do |a|
-     arr << a.text
+     arr << a.to_html
 
 
      # arr << a.css('span').css('em').text
    end
    @frentries.take(20).each_slice(2) do |f, b|
-     frarr << f.css('.text').text
-     harr << f.css('.text').css('a').text
+     y = f.css('.text').to_html
+     frarr << y
+    harr << f.css('.text').css('a')[0].text
 
-    # arr << a.css('span').css('em').text
+         # arr << a.css('span').css('em').text
    end
 
 

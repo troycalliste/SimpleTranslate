@@ -1,16 +1,25 @@
 
 <h1 id="myurl1"><% "#{@french}"%></h1>
-<div class="myarr"><%= "#{@harr}" %></div>
+<div class="wordList">
+<% @harr.each do |a| %>
+<span class="innerList"><div class="myarr"><%= a.split(',')[0] %></div></span>
+<% end %>
+</div>
+
 <div class="myurl">
  <% @arr.zip(@frarr).each do |a, f|  %>
   <div class="resultborder">
     <div class="results">
-      <div class="resultcut"><%= a %> 33333 </div>
-      <img class="voice" src="https://img.icons8.com/ios/50/000000/speaker.png">
+      <div class="resultcut"><%= a.html_safe %></div>
+      <img class="voice"  src="https://img.icons8.com/ios/50/000000/speaker.png">
+      <img class="mute" src="https://img.icons8.com/flat_round/64/000000/mute.png">
+
     </div>
     <div class="flresults">
-      <div class="resultcut"><%= f %></div>
+      <div class="resultcut"><%= f.html_safe %></div>
       <img class="voice" src="https://img.icons8.com/ios/50/000000/speaker.png">
+      <img class="mute" src="https://img.icons8.com/flat_round/64/000000/mute.png">
+
     </div>
   </div>
  <% end %>

@@ -1,25 +1,100 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+html {
+  background-color: lightblue;
+}
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.topnav {
-  margin: 0;
+.lownav  {
+  margin-top: 0;
+  height: 450px;
+  width: 100%;
+  background-color: #EFF5F7;
   position: absolute;
-  background-color: black;
+  z-index: -2;
+  border-bottom: 6px dashed rgba(28,110,164,0.33);
+
+
+
+
+}
+.topnav  {
+  margin-top: 0;
+
+
   height: 300px;
   width: 100%;
+  // background-image: url("hands.jpg");
+  // background-repeat: no-repeat;
+
+  position: absolute;
+  // z-index: -1;
+  // opacity: 0.3;
+  //
+  // box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.59);
+  border-bottom: 6px dashed rgba(28,110,164,0.33);
+
+
+
 }
+.topnav::after {
+ content: ' ';
+ display: block;
+ position: absolute;
+ left: 0;
+ top: 0;
+ width: 100%;
+ height: 300px;
+ z-index: -1;
+ opacity: 0.7;
+ // background-image: url("hands.jpg");
+ // background-repeat: no-repeat;
+ // background-size: 2400px 1300px;
+ // background-position: center;
+
+ background-image: url("spain.jpg");
+ background-position: 0 60%;
+ background-size: 100vw calc(100vw / 3.9);
+
+}
+.topnav.french::after {
+   background-image: url("paris.jpg");
+}
+.topnav.spanish::after {
+   background-image: url("spain.jpg");
+
+}
+.topnav.dutch::after {
+  background-repeat: no-repeat;
+  background-image: url("netherlands.jpg");
+  background-position: 0 80%;
+  background-size: 2300px 1100px;
+}
+
+.topnav.arabic::after {
+   background-image: url("dubai.jpg");
+
+}
+.topnav.italian::after {
+   background-image: url("venice.jpg");
+}
+.topnav.russian::after {
+   background-image: url("russia.jpg");
+}
+
+
+
 .topnav input[type=text] {
   float: left;
   padding: 6px;
   margin-top: 8px;
   font-size: 17px;
   border: none;
+   z-index: 2;
+
 }
 .topnav .search-container button {
 
@@ -38,37 +113,58 @@ body {
 }
 .topnav .search-container  {
   float: left;
+   z-index: 2;
   // background: red;
 }
 .topnav .langselect {
   float: left;
   // background: green;
-  padding: 0px 3px;
+  padding: 0px 0px;
 
 }
 .topnav .langselect select {
   float: left;
-  padding: 6px 10px;
-  margin-top: 8px;
+  padding: 6px 6px;
+
   font-size: 17px;
   border: none;
 }
-.topnav .langselect span{
-  color: white;
+select:focus {
+  border: none;
+  outline: none;
 }
+
 .topnav .langselect .swap{
-  padding-top: 20px;
+  padding-top: 12px;
   // background: orange;
   width: 30px;
+
+  text-align: center;
+}
+.selectWrap {
+  margin-top: 5px;
+  border-radius: 2px;
+  display:inline-block;
+  overflow:hidden;
+  background: white;
+  padding: 5px;
+
+}
+.swap img{
+  height: 23px;
+  // background: orange;
+  width: 23px;
+
   text-align: center;
 }
 .homeContent {
+  display: none;
   height: 60vh;
   width: 39vw;
   min-width: 650px;
   max-width: 750px;
   background: lightblue;
-  margin: 300px  auto;
+  margin: 200px  auto;
   z-index: 1;
 }
 .highlight {
@@ -111,6 +207,64 @@ body {
 
   width: 90%;
 }
+.mute {
+  display: none;
+}
+#inputTxt {
+  width: 20vw;
+  min-width: 360px;
+  max-width: 500px;
+}
+.search-container{
+  margin-left: 10px;
+}
+.link_highlighted {
+
+}
+em {
+    background-color: rgba(255,255,0,0.3);
+}
+.myarr {
+  margin: 0 auto;
+  color: red;
+  border-radius: 4px;
+  border: 1px solid red;
+  // float: left;
+  padding: 10px;
+  background: pink;
+  display:inline-block;
+}
+
+.innerList {
+padding: 2px 7px;
+display:inline-block;
+overflow: auto;
+
+
+}
+.wordList {
+  width: 39vw;
+  min-width: 650px;
+  max-width: 750px;
+  margin: 0 auto;
+  overflow: auto;
+  text-align: left;
+  margin-top: 330px;
+  background: blue;
+
+
+}
+#swapLang:hover {
+  transform: rotate(-100deg);
+}
+#swapLang {
+  transition: transform 0.4s;
+}
+
+
+
+
+
 
 @media screen and (max-width: 660px) {
  .homeContent {

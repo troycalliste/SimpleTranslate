@@ -1,0 +1,34 @@
+
+ <div class="pasteBox">
+   <div class="pasteInner">
+   <form onsubmit="parseTxt()">
+   <textarea id="pasteTxt" name="name" rows="30" cols="80" maxlength="500"></textarea>
+
+     <input type="submit">
+   </form>
+ </div>
+</div>
+
+
+
+<script>
+let sub = document.getElementsByClassName('clc')[0];
+let box = document.getElementsByClassName('pasteInner')[0];
+
+function parseTxt() {
+  let filarr  = $('textarea').val().split("\n"); // creates new element at line break, doesn't add one
+  let i;
+  let arr = []
+  let ks = filarr.filter(function (el) {
+    return el != "";
+    });
+  for (i = 0; i < ks.length; i++) {
+    ks[i] = ks[i] + '<br />';
+   arr.push((i + 1) + ". " + ks[i]) ;
+  }
+  box.innerHTML = arr.join(" ")
+
+
+}
+
+</script>
