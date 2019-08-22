@@ -1,0 +1,8 @@
+<div class="arrList">
+<% @arr.zip(@farr).each do |a, f|  %>
+
+<span class="word"><%= a %></span> <span class="defn">- <%= f %> </span><br />
+<% end %>
+<button id="wordBtn" type="button" name="button">hide word</button>
+<button id="defBtn" type="button" name="button">hide definition</button>
+</div>

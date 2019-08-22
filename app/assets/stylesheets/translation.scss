@@ -24,25 +24,47 @@
 .pasteBox {
   text-align: center;
   margin: 0 auto;
-  height: 80vh;
+  margin-top: 200px;
   width: 80vw;
   background: red;
   padding: 0;
   position: relative;
   // word-spacing: 100vw;
+
 }
-.pasteInner {
-   height: 80vh;
-   width: 40vw;
+.centerList {
+
+  margin: auto;
+  overflow: auto;
+  text-align: center;
+  background-color: orange;
+  width: 62vw;
+  text-align: left;
+
+}
+.word {
+  padding-left: 20px;
+}
+.colOne {
+
+   width: 30vw;
    position: relative;
-   background: lightblue;
+   background: blue;
    margin: 0 auto;
    text-align: left;
-   // width: min-intrinsic;
-   // width: -webkit-min-content;
-   // width: -moz-min-content;
-   // width: min-content;
-   // display: table-caption;
-   // display: -ms-grid;
-   // -ms-grid-columns: min-content;
+   display: inline-block;
+   z-index: 2;
+}
+// .colTwo {
+//    height: 80vh;
+//    width: 30vw;
+//    position: relative;
+//    background: green;
+//    margin: 0 auto;
+//    text-align: left;
+//    display: inline-block;
+//     z-index: 2;
+// }
+.arrList {
+
 }

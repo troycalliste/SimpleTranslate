@@ -1,34 +1,216 @@
 
+ <form>
+
+   <select id="oneSelect1" name="language">
+      <option selected>English</option>
+      <option>French</option>
+      <option>Spanish</option>
+      <option>German</option>
+      <option>Arabic</option>
+      <option>Italian</option>
+      <option>Portuguese</option>
+  </select>
+  <div class="swap">
+    <span><img id="swapLang" src="https://img.icons8.com/ultraviolet/40/000000/synchronize.png"></span>
+  </div>
+   <select id="twoSelect1" name="language">
+
+     <option>English</option>
+     <option selected>French</option>
+     <option>Spanish</option>
+     <option>German</option>
+     <option>Arabic</option>
+     <option>Italian</option>
+     <option>Portuguese</option>
+  </select>
+</form>
+
  <div class="pasteBox">
-   <div class="pasteInner">
-   <form onsubmit="parseTxt()">
+<button id="pasteBtn">Paste</button>
    <textarea id="pasteTxt" name="name" rows="30" cols="80" maxlength="500"></textarea>
 
-     <input type="submit">
-   </form>
+
+     <button class="btnnn">Submit</button>
+
+
+
  </div>
-</div>
+ <div class="centerList">
+   <div class="colOne">
+ </div>
 
-
+ </div>
 
 <script>
+$(document).ready(function() {
 let sub = document.getElementsByClassName('clc')[0];
-let box = document.getElementsByClassName('pasteInner')[0];
+let box = document.getElementsByClassName('colOne')[0];
+let box2 = document.getElementsByClassName('colTwo')[0];
+let red = document.getElementsByClassName('pasteBox')[0];
+const btnnn = document.getElementsByClassName('btnnn')[0];
+const oneSelect = document.getElementById("oneSelect1");
+const twoSelect = document.getElementById("twoSelect1");
+const textbox = document.getElementById("pasteBtn");
+let toggled1 = false;
+let toggled2 = false;
+// Opera 8.0+
 
-function parseTxt() {
-  let filarr  = $('textarea').val().split("\n"); // creates new element at line break, doesn't add one
-  let i;
-  let arr = []
-  let ks = filarr.filter(function (el) {
-    return el != "";
-    });
-  for (i = 0; i < ks.length; i++) {
-    ks[i] = ks[i] + '<br />';
-   arr.push((i + 1) + ". " + ks[i]) ;
+var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+// Firefox 1.0+
+var isFirefox = typeof InstallTrigger !== 'undefined';
+
+// Safari 3.0+ "[object HTMLElementConstructor]"
+var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+
+// Internet Explorer 6-11
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+// Edge 20+
+var isEdge = !isIE && !!window.StyleMedia;
+
+// Chrome 1 - 71
+var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+
+// Blink engine detection
+var isBlink = (isChrome || isOpera) && !!window.CSS;
+
+
+
+function chrome() {
+  if (!(isChrome)) {
+  textbox.style.display = "none"
+} else {
+  textbox.style.display = "inline-block"
+}
+// console.log(isChrome)
+// var output = 'Detecting browsers by ducktyping:<hr>';
+// output += 'isFirefox: ' + isFirefox + '<br>';
+// output += 'isChrome: ' + isChrome + '<br>';
+// output += 'isSafari: ' + isSafari + '<br>';
+// output += 'isOpera: ' + isOpera + '<br>';
+// output += 'isIE: ' + isIE + '<br>';
+// output += 'isEdge: ' + isEdge + '<br>';
+// output += 'isBlink: ' + isBlink + '<br>';
+// console.log(output);
+}
+chrome();
+
+btnnn.addEventListener('click', parseTxt, false);
+textbox.addEventListener('click', pasteWrap, false);
+function pasteWrap() {
+  if (isChrome) {
+  paste(textbox);
+  console.log("clicked");
   }
-  box.innerHTML = arr.join(" ")
 
 
 }
+async function paste(input) {
+  const text = await navigator.clipboard.readText();
+  document.getElementById("pasteTxt").value = text;
+}
 
+
+function parseTxt() {
+
+  // let filarr  = $('textarea').val().split("\n"); // creates new element at line break, doesn't add one
+  let filarr = document.getElementById("pasteTxt").value.split("\n")
+    console.log(typeof filarr)
+  let i;
+  let arr = []
+  // let arr2 = []
+  let ks = filarr.filter(function (el) {
+    return el != "";
+    });
+    let jt = []
+  for (i = 0; i < ks.length; i++) {
+    jt[i] = ks[i] + '<br />';
+    // if (arr.length < 26) {
+   arr.push((i + 1) + ". " + jt[i]);
+ // } else { arr2.push((i + 31) + ". " + ks[i]) ; }
+  };
+
+
+  const str = oneSelect.options[oneSelect.selectedIndex].text;
+  const str2 = twoSelect.options[twoSelect.selectedIndex].text;
+  const collins = "https://www.collinsdictionary.com/dictionary/";
+  const langlink = collins + str.toLowerCase() + "-" + str2.toLowerCase() + "/";
+
+
+
+
+  enfrlinks = []
+  linkArr = [] //this will be based on user input language choice,  so we only use one line for it
+  for (i = 0; i < ks.length; i++) {
+    word = ks[i].replace(/\s+/g, '-')
+    enfrlinks.push(langlink + word)
+  }
+  // red.innerHTML = arr.join(" ")
+  // box2.innerHTML = arr2.join(" ")
+  // .innerHTML = "j"
+  // red.style.display = "none";
+  // box2.style.marginTop = "0px"
+  console.log(enfrlinks)
+  $.ajax({
+
+   url: "flash",
+   data: { data_value: enfrlinks },
+   success: function(response)
+      { if (response) {
+          let result = $(response).find(".arrList");
+          console.log(result + "woo");
+          // result2 = $(response).find(".innerList");
+          // refContain.style.display = "block";
+          // newclss = document.getElementsByClassName("topnav")[0].className = "topnav " + str2.toLowerCase();
+  // $(".topnav").css("background-size", "2400px 1300px")
+  // $(".topnav").css("background-position", " center")
+         $(".pasteBox").empty().append(result)
+         $(".centerList").append(result)
+         }
+         const dbtn = document.getElementById("defBtn");
+         const wbtn = document.getElementById("wordBtn");
+         wbtn.addEventListener('click', hideWord)
+         dbtn.addEventListener('click', hideDef)
+      },
+    error: function () {
+        console.log("error");
+        $(".pasteBox").empty().append("unknown error")
+      }
+  });
+
+}
+
+function hideWord() {
+
+  if (toggled2 == false) {
+  $(".word").css("display","none");
+  $("#wordBtn").text("show word");
+  toggled2 = true;
+
+} else {
+  $(".word").css("display","inline-block");
+  $("#wordBtn").text("hide word");
+  toggled2 = false;
+  console.log(toggled2);
+  }
+}
+function hideDef() {
+  if (toggled1 == false) {
+ $(".defn").css("display","none");
+ $("#defBtn").text("show definition");
+ toggled1 = true;
+} else {
+$(".defn").css("display","inline-block");
+$("#defBtn").text("hide definition");
+toggled1 = false }
+}
+
+});
+//well loop through the array , keep making requests and keep appending
+// actually well just send the array to ruby controller and loop it there
+
+
+
+// restclient is better
 </script>
