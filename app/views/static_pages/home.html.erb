@@ -1,10 +1,10 @@
+<div class="wrp">
 <div class="wordList">
 
 </div>
 <div class="homeContent">
 </div>
-
-<script>
+</div><script>
 
   const refSearch = document.getElementsByClassName("refSearch")[0];
   const oneSelect = document.getElementById("oneSelect");
@@ -68,7 +68,9 @@ $('#swap').click(function () {
      }
      event.preventDefault()
      const inputTxt = document.getElementById("inputTxt").value;
+
      const refContain = document.getElementsByClassName("homeContent")[0];
+     const wrdList = document.getElementsByClassName("wordList")[0];
      const parsedTxt = inputTxt.replace(/\s+/g, '+');
      const str = oneSelect.options[oneSelect.selectedIndex].text;
      const str2 = twoSelect.options[twoSelect.selectedIndex].text;
@@ -95,7 +97,7 @@ $('#swap').click(function () {
            {
              result = $(response).find(".myurl");
              result2 = $(response).find(".innerList");
-          
+
              refContain.style.display = "block";
              newclss = document.getElementsByClassName("topnav")[0].className = "topnav " + str2.toLowerCase();
 
@@ -105,6 +107,7 @@ $('#swap').click(function () {
              // $(".topnav").css("background-size", "2400px 1300px")
              // $(".topnav").css("background-position", " center")
 
+            wrdList.style.display = "block";
             $(".homeContent").empty().append(result)
             $(".wordList").empty().append(result2)
             let french = document.getElementsByClassName("myarr")[0].innerText;
@@ -169,7 +172,7 @@ $('#swap').click(function () {
            this.style.display = "none";
            responsiveVoice.cancel();
         })
-        setTimeout(function() {         responsiveVoice.speak(sayFull, spkr);
+        setTimeout(function() { responsiveVoice.speak(sayFull, spkr);
           }, 1000)
         setTimeout(function() {
              muteHide(str);

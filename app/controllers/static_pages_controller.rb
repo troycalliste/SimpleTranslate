@@ -13,7 +13,9 @@ class StaticPagesController < ApplicationController
 
     @ourUrl = params[:data_value]
     # "https://context.reverso.net/translation/french-english/j%27arrive"
+    # "https://context.reverso.net/translation/english-spanish/house+is+not+home"
     # use this inside restclient.get()   URI.escape(@ourUrl))
+    "https://context.reverso.net/translation/english-spanish/house+is+not+home"
     doc = Nokogiri::HTML(RestClient.get(URI.escape(@ourUrl)))
     arr = []
     frarr = []
@@ -28,11 +30,14 @@ class StaticPagesController < ApplicationController
      # arr << a.css('span').css('em').text
    end
    @frentries.take(20).each_slice(2) do |f, b|
+     begin
      y = f.css('.text').to_html
      frarr << y
-    harr << f.css('.text').css('a')[0].text
-
-         # arr << a.css('span').css('em').text
+     harr << f.css('.text').css('a')[0].text
+   rescue => e
+     # harr << "(word not available)"
+   end
+     # arr << a.css('span').css('em').text
    end
 
 
@@ -42,6 +47,8 @@ class StaticPagesController < ApplicationController
     @arr = arr
     @frarr = frarr
     @harr = harr
+
+
 
 
     # render template: 'static_pages/flash'

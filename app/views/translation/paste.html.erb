@@ -1,8 +1,8 @@
 
  <form>
 
-   <select id="oneSelect1" name="language">
-      <option selected>English</option>
+   <select id="oneSelect1" name="language" onchange="selectFilter()">
+      <option selected class="eng">English</option>
       <option>French</option>
       <option>Spanish</option>
       <option>German</option>
@@ -11,23 +11,23 @@
       <option>Portuguese</option>
   </select>
   <div class="swap">
-    <span><img id="swapLang" src="https://img.icons8.com/ultraviolet/40/000000/synchronize.png"></span>
+    <span><img id="swapLang1" src="https://img.icons8.com/ultraviolet/40/000000/synchronize.png"></span>
   </div>
    <select id="twoSelect1" name="language">
 
-     <option>English</option>
-     <option selected>French</option>
-     <option>Spanish</option>
-     <option>German</option>
-     <option>Arabic</option>
-     <option>Italian</option>
-     <option>Portuguese</option>
+     <option class="alt">English</option>
+     <option selected class="alt2">French</option>
+     <option class="alt2">Spanish</option>
+     <option class="alt2">German</option>
+     <option class="alt2">Arabic</option>
+     <option class="alt2">Italian</option>
+     <option class="alt2">Portuguese</option>
   </select>
 </form>
 
  <div class="pasteBox">
 <button id="pasteBtn">Paste</button>
-   <textarea id="pasteTxt" name="name" rows="30" cols="80" maxlength="500"></textarea>
+   <textarea id="pasteTxt" name="name" rows="30" cols="80" ></textarea>
 
 
      <button class="btnnn">Submit</button>
@@ -53,6 +53,7 @@ const twoSelect = document.getElementById("twoSelect1");
 const textbox = document.getElementById("pasteBtn");
 let toggled1 = false;
 let toggled2 = false;
+let toggle = false;
 // Opera 8.0+
 
 var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
@@ -115,6 +116,8 @@ async function paste(input) {
 function parseTxt() {
 
   // let filarr  = $('textarea').val().split("\n"); // creates new element at line break, doesn't add one
+ btnnn.removeEventListener('click', parseTxt, false);
+
   let filarr = document.getElementById("pasteTxt").value.split("\n")
     console.log(typeof filarr)
   let i;
@@ -136,15 +139,30 @@ function parseTxt() {
   const str2 = twoSelect.options[twoSelect.selectedIndex].text;
   const collins = "https://www.collinsdictionary.com/dictionary/";
   const langlink = collins + str.toLowerCase() + "-" + str2.toLowerCase() + "/";
+  let langOne = str + " Female"
+  let langTwo =  str2 + " Female"
+  let en = "US English Male"
+  let gn = "Deutsch Female"
+  if (str[0] == "E") {
+    langOne = en
+  } else if (str2[0] == "E") {
+      langTwo = en
+    };
+  if (str[0] == "G") {
+      langOne = gn
+    } else if (str2[0] == "G") {
+        langTwo = gn
+    };
 
 
 
 
   enfrlinks = []
-  linkArr = [] //this will be based on user input language choice,  so we only use one line for it
+  arr2 = [] //this will be based on user input language choice,  so we only use one line for it
   for (i = 0; i < ks.length; i++) {
-    word = ks[i].replace(/\s+/g, '-')
-    enfrlinks.push(langlink + word)
+    arr2.push(ks[i]);
+    word = ks[i].replace(/\s+/g, '-');
+    enfrlinks.push(langlink + word);
   }
   // red.innerHTML = arr.join(" ")
   // box2.innerHTML = arr2.join(" ")
@@ -155,7 +173,7 @@ function parseTxt() {
   $.ajax({
 
    url: "flash",
-   data: { data_value: enfrlinks },
+   data: { data_value: enfrlinks, arr2: arr2 },
    success: function(response)
       { if (response) {
           let result = $(response).find(".arrList");
@@ -170,8 +188,21 @@ function parseTxt() {
          }
          const dbtn = document.getElementById("defBtn");
          const wbtn = document.getElementById("wordBtn");
-         wbtn.addEventListener('click', hideWord)
-         dbtn.addEventListener('click', hideDef)
+         wbtn.addEventListener('click', hideWord);
+         dbtn.addEventListener('click', hideDef);
+         $( ".icn" ).click(
+         function() {
+           console.log("something");
+           indx = $(this).index(".icn");
+           spk = $(".sp").eq(indx).text();
+           if (indx % 2 == 0) {
+             responsiveVoice.speak(spk, langTwo)
+           } else {
+             responsiveVoice.speak(spk, langOne)
+          };
+         });
+
+
       },
     error: function () {
         console.log("error");
@@ -179,36 +210,136 @@ function parseTxt() {
       }
   });
 
+
+}
+function hov(liveClass) {
+
+console.log("its repeating");
+  $( liveClass ).hover(
+  function() {
+   // $(liveClass).children().addClass("hoverDef");
+   $(liveClass).children(".sp").css("visibility","visible");
+
+  }, function() {
+     // $(liveClass).children()
+     // $(liveClass).removeClass("hoverDef")
+     $(liveClass).children(".sp").css("visibility","hidden");
+     }
+);
 }
 
-function hideWord() {
 
+function addLis(classname) {
+for (var i = 0; i < classname.length; i++) {
+    let live = classname[i]
+    classname[i].addEventListener('mouseover', function () {hov(live)}, false);
+}
+}
+
+function remLis(classname) {
+for (var i = 0; i < classname.length; i++) {
+  let live = classname[i]
+    // $().off()
+    $(live).replaceWith($(live).clone());
+
+}
+$( ".icn" ).on( "click",
+function() {
+  str = oneSelect.options[oneSelect.selectedIndex].text;
+  str2 = twoSelect.options[twoSelect.selectedIndex].text;
+   langOne = str + " Female"
+   langTwo =  str2 + " Female"
+
+  console.log("something");
+  indx = $(this).index(".icn");
+  spk = $(".sp").eq(indx).text();
+  console.log(spk)
+  // && (!responsiveVoice.isPlaying()
+  if (indx % 2 == 0 ) {
+    responsiveVoice.speak(spk, langTwo)
+    return
+  } else {
+    responsiveVoice.speak(spk, langOne)
+    return
+ };
+});
+}
+
+
+
+function hideWord() {
+  defn = document.getElementsByClassName("defn");
   if (toggled2 == false) {
   $(".word").css("display","none");
   $("#wordBtn").text("show word");
   toggled2 = true;
+   addLis(defn);
+   $(".hoverNotice").css("display","block");
+
 
 } else {
   $(".word").css("display","inline-block");
   $("#wordBtn").text("hide word");
   toggled2 = false;
   console.log(toggled2);
-  }
+  remLis(defn);
+  $(".hoverNotice").css("display","none");
+}
+ return
 }
 function hideDef() {
+  word = document.getElementsByClassName("word");
+  // defn = document.getElementsByClassName("defn");
   if (toggled1 == false) {
  $(".defn").css("display","none");
  $("#defBtn").text("show definition");
- toggled1 = true;
+ toggled1 = true
+ addLis(word);
+ $(".hoverNotice").css("display","block");
 } else {
 $(".defn").css("display","inline-block");
 $("#defBtn").text("hide definition");
-toggled1 = false }
+toggled1 = false;
+remLis(word);
+$(".hoverNotice").css("display","none");
 }
+ return
+}
+
+
+
+// var x = document.getElementById("pets").options[2].disabled = true;
+
+
+
+
+
+
 
 });
 //well loop through the array , keep making requests and keep appending
 // actually well just send the array to ruby controller and loop it there
+$('#swapLang1').click(function () {
+    let v1 = $('#oneSelect1').val(),
+        v2 = $('#twoSelect1').val();
+    $('#oneSelect1').val(v2);
+    $('#twoSelect1').val(v1);
+
+});
+function selectFilter() {
+// var x = document.getElementById("oneSelect1").value;
+
+oneSelect = document.getElementById("oneSelect1");
+str = oneSelect.options[oneSelect.selectedIndex].text
+ if (str == "English") {
+ $('.alt2').prop('disabled', false)
+ $('.alt').prop('disabled', true)
+ } else {
+  $('.alt2').prop('disabled', true)
+  $('.alt').prop('disabled', false)
+  console.log("englishhh")
+ };
+}
 
 
 

@@ -13,11 +13,10 @@ class TranslationController < ApplicationController
     # render template: 'static_pages/flash'
   end
   def paste
-
-
   end
   def flash
      @enfrlink = params[:data_value]
+     @otherarr = params[:arr2]
     # @enfrlink = ["okay", "next", 1]
       @arr = []
       @farr = []
@@ -37,12 +36,13 @@ class TranslationController < ApplicationController
         @origWord = doc.css('.h2_entry').css('.orth')[0].text
         @origDef = doc.css('.type-translation').css('.quote')
         if @origDef[0].text && @origWord
-           @arr << @origWord #+ index.to_s
+           @arr << @origWord + " - " #+ index.to_s
            @farr << @origDef[0].text #+ index.to_s
         end
      rescue => e
             # if not @originWord
-           @arr << "(Please check spelling and try again.)" #+ index.to_s
+           @arr << "(translation of \"#{@otherarr[index] }\" is not available)" #+ index.to_s
+
 
             # else
            @farr << ""
@@ -53,6 +53,12 @@ class TranslationController < ApplicationController
      # @origDef = doc.css('.type-translation').css('.quote')
       # if not @origWord.empty?
       end
+   end
+
+
+
+
+   def flashcards
    end
 
   end

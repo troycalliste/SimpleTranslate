@@ -1,0 +1,65 @@
+
+<div class="flip-container" >
+	<div class="flipper">
+		<div class="card">
+			<!-- front content -->
+		</div>
+		<div class="back">
+			<!-- back content -->
+		</div>
+		<div class="smallcard">
+		some stuff
+		</div>
+		<div class="smallcard2">
+		other stuff
+		</div>
+	</div>
+</div>
+
+
+<script>
+$(document).ready(function() {
+let card = document.getElementsByClassName("card")[0];
+const flip = document.getElementsByClassName("flipper")[0];
+const back = document.getElementsByClassName("back")[0];
+const smallcard = document.getElementsByClassName("smallcard")[0];
+card.addEventListener("click", doThis, false);
+back.addEventListener("click", doThis2, false);
+smallcard.addEventListener("click", doThis3, false);
+function doThis() {
+ console.log("its on");
+ // this.className += " hover";
+ flip.style.transform = "rotateX(180deg)";
+ card.style.transform = "rotateX(180deg)";
+}
+
+function doThis2() {
+
+ // this.className += " hover";
+
+ flip.style.transform = "rotateX(0deg)";
+ card.style.transform = "rotateX(0deg)";
+}
+function doThis3() {
+
+ // $(".smallcard").animate({left: '45%'});
+
+
+
+ $(".smallcard").animate({
+
+	  height: '300px',
+		top: '50%',
+		left: '45%',
+		width: '500px',
+		backgroundSize: '100%',
+		marginLeft: "-250px"
+});
+ // $(".smallcard").animate({height: '300px'});
+  // $(".smallcard").animate({top: '50%'});
+
+}
+
+
+});
+</script>

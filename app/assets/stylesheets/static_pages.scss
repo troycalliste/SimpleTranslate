@@ -10,6 +10,7 @@ body {
 }
 .lownav  {
   margin-top: 0;
+  top: 0;
   height: 450px;
   width: 100%;
   background-color: #EFF5F7;
@@ -19,6 +20,14 @@ body {
 
 
 
+
+}
+.wrp{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 700px;
+  margin-left: -350px;
 
 }
 .topnav  {
@@ -243,6 +252,7 @@ overflow: auto;
 
 }
 .wordList {
+  display: none;
   width: 39vw;
   min-width: 650px;
   max-width: 750px;

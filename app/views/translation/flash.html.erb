@@ -1,8 +1,14 @@
 <div class="arrList">
+  <span class="hoverNotice" style="color:red;display:none">Mouse over a word for definition </span><br />
 <% @arr.zip(@farr).each do |a, f|  %>
 
-<span class="word"><%= a %></span> <span class="defn">- <%= f %> </span><br />
+<span class="word lst"><%= a %><span class="tooltiptext sp"><%= f %>  <i class='icn fas fa-volume-up'  style='color:red'>
+</i></span></span>
+<span class="defn lst"><%= f %> <span class="tooltiptext sp"><%= a %>  <i class='icn fas fa-volume-up' style='color:red'>
+</i></span></span><br />
+
 <% end %>
 <button id="wordBtn" type="button" name="button">hide word</button>
 <button id="defBtn" type="button" name="button">hide definition</button>
+<button id="refresh" type="button" name="button" style="margin-left:70px"><a href="paste">make new list</a></button>
 </div>

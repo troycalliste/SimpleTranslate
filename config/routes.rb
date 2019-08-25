@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get 'static_pages/flash'
   get 'translation/paste'
   get 'translation/flash'
+  get 'translation/flashcards'
 
 end
