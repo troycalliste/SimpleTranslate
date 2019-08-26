@@ -3,10 +3,10 @@
 	<div class="flipper">
 		<div class="card">
 			<!-- front content -->
-		</div>
+	 </div>
 		<div class="back">
+			</div>
 			<!-- back content -->
-		</div>
 		<div class="smallcard">
 		some stuff
 		</div>
@@ -17,20 +17,71 @@
 </div>
 
 
+
+
+
+
+
+<div class="flashcardInputWrap">
+<button id="nextBtn">next</button>
+	<textarea id="pasteList" name="name" rows="30" cols="80"></textarea>
+		<button class="flashcardInput">Submit</button>
+		<button id="">Paste</button>
+
+
+
+		<form class="flashcardForm">
+
+			<select id="oneSelect2" name="language" onchange="selectFilter()">
+				 <option selected class="eng">English</option>
+				 <option>French</option>
+				 <option>Spanish</option>
+				 <option>German</option>
+				 <option>Arabic</option>
+				 <option>Italian</option>
+				 <option>Portuguese</option>
+		 </select>
+		 <div class="swap">
+			 <span><img id="swapLang1" src="https://img.icons8.com/ultraviolet/40/000000/synchronize.png"></span>
+		 </div>
+			<select id="twoSelect2" name="language">
+
+				<option class="alt">English</option>
+				<option selected class="alt2">French</option>
+				<option class="alt2">Spanish</option>
+				<option class="alt2">German</option>
+				<option class="alt2">Arabic</option>
+				<option class="alt2">Italian</option>
+				<option class="alt2">Portuguese</option>
+		 </select>
+		</form>
+</div>
+
+
+
+
 <script>
 $(document).ready(function() {
 let card = document.getElementsByClassName("card")[0];
 const flip = document.getElementsByClassName("flipper")[0];
 const back = document.getElementsByClassName("back")[0];
 const smallcard = document.getElementsByClassName("smallcard")[0];
-card.addEventListener("click", doThis, false);
+const box = document.getElementsByClassName("flashtextbox")[0];
+const button = document.getElementsByClassName("flashcardInput")[0];
+const oneSelect = document.getElementById("oneSelect2");
+const twoSelect = document.getElementById("twoSelect2");
+const wrap = document.getElementsByClassName("flashcardInputWrap")[0];
+const next = document.getElementById("nextBtn");
+let bench = 0
+
 back.addEventListener("click", doThis2, false);
 smallcard.addEventListener("click", doThis3, false);
+button.addEventListener('click', doThis4, false);
 function doThis() {
  console.log("its on");
  // this.className += " hover";
- flip.style.transform = "rotateX(180deg)";
- card.style.transform = "rotateX(180deg)";
+ // flip.style.transform = "rotateX(180deg)";
+ // card.style.transform = "rotateX(180deg)";
 }
 
 function doThis2() {
@@ -41,11 +92,6 @@ function doThis2() {
  card.style.transform = "rotateX(0deg)";
 }
 function doThis3() {
-
- // $(".smallcard").animate({left: '45%'});
-
-
-
  $(".smallcard").animate({
 
 	  height: '300px',
@@ -59,6 +105,146 @@ function doThis3() {
   // $(".smallcard").animate({top: '50%'});
 
 }
+
+
+function doThis4() {
+	let filarr = document.getElementById("pasteList").value.split("\n")
+    console.log(typeof filarr)
+  let i;
+  let arr = []
+  // let arr2 = []
+  let ks = filarr.filter(function (el) {
+    return el != "";
+    });
+    let jt = []
+  for (i = 0; i < ks.length; i++) {
+    jt[i] = ks[i] + '<br />';
+    // if (arr.length < 26) {
+   arr.push((i + 1) + ". " + jt[i]);
+ // } else { arr2.push((i + 31) + ". " + ks[i]) ; }
+  };
+
+
+  const str = oneSelect.options[oneSelect.selectedIndex].text;
+  const str2 = twoSelect.options[twoSelect.selectedIndex].text;
+  const collins = "https://www.collinsdictionary.com/dictionary/";
+  const langlink = collins + str.toLowerCase() + "-" + str2.toLowerCase() + "/";
+  let langOne = str + " Female"
+  let langTwo =  str2 + " Female"
+  let en = "US English Male"
+  let gn = "Deutsch Female"
+  if (str[0] == "E") {
+    langOne = en
+  } else if (str2[0] == "E") {
+      langTwo = en
+    };
+  if (str[0] == "G") {
+      langOne = gn
+    } else if (str2[0] == "G") {
+        langTwo = gn
+    };
+
+
+
+
+  enfrlinks = []
+  arr2 = [] //this will be based on user input language choice,  so we only use one line for it
+  for (i = 0; i < ks.length; i++) {
+    arr2.push(ks[i]);
+    word = ks[i].replace(/\s+/g, '-');
+    enfrlinks.push(langlink + word);
+  }
+	$.ajax({
+
+   url: "flash",
+   data: { data_value: enfrlinks },
+   success: function(response)
+      { if (response) {
+          let result = $(response).find(".arrList2");
+
+				  // let oneWord = $(result).children().first()
+					let allWords = $(result).children()
+					let oneWord = $(allWords).get(0)
+			     	$(".card").append(allWords)
+						$(allWords).css("display","none");
+						$(oneWord).css("display","block");
+						$(oneWord).addClass("onCard")
+
+						//.css("display", "block");
+					// $(".card").append(oneWord)
+					// $(allWords).css("display", "block");
+					// $(oneWord).css("display", "block");
+
+        card.addEventListener("click", function () {listenerFunc(oneWord)}, false);
+				next.addEventListener('click', nextFunc, false);
+        bench = 0
+
+
+				 $("all words").css("display", "none")
+					$("all words").first()
+					//put that word in the center of card
+			 } }
+    });
+}
+
+function listenerFunc(oneWord) {
+	flip.style.transform = "rotateX(180deg)";
+	card.style.transform = "rotateX(180deg)";
+	 i =  $(oneWord).index(".word");
+
+	 console.log(i);
+  // g = i + 1;
+	// word = document.getElementsByClassName("word");
+  // word[g].style.display = "block";
+	// word[i].style.display = "none";
+	flipdef = document.getElementsByClassName("defn");
+	console.log(oneWord[i]);
+	flipdef[i].style.display = "block"
+	 back.innerText = flipdef[i].innerText
+}
+function nextFunc() {
+	//get the current one now
+//find the element with onCard, take off that class and add it to the next
+
+//just going to grab it from afar
+
+// var current;
+for (var i = 0; i < card.children.length; i++) {
+  console.log(card.children.length + "length")
+    if (card.children[i].className == "word lst onCard" || card.children[i].className == "defn lst onCard") {
+			  $(card.children[i]).removeClass("onCard");
+				$(card.children[i]).css("display", "none");
+				$(card.children[i + 1]).addClass("onCard");
+				$(card.children[i + 1]).css("display", "block");
+       console.log($(card.children[i])) //
+			 console.log($(card.children[i + 1])) //.addClass("onCard");
+       // card.innerHTML = card.children[i + 1].html  //i take away the children here 
+      break;
+    // }
+	 }
+	// console.log(i)
+ // card.innerText = current.innerText;
+//
+
+
+	// console.log(card.childNodes[i + 2])
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 });

@@ -41,12 +41,14 @@ class TranslationController < ApplicationController
         end
      rescue => e
             # if not @originWord
+        if @otherarr
            @arr << "(translation of \"#{@otherarr[index] }\" is not available)" #+ index.to_s
-
+        end 
 
             # else
            @farr << ""
             # end
+
      end
 
      # @origWord = doc.css('.h2_entry').css('.orth').text

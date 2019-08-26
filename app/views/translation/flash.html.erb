@@ -8,7 +8,15 @@
 </i></span></span><br />
 
 <% end %>
-<button id="wordBtn" type="button" name="button">hide word</button>
-<button id="defBtn" type="button" name="button">hide definition</button>
+
+<div class="arrList2">
+
+<% @arr.zip(@farr).each do |w, d| %>
+
+<span class="word lst"><%= w %></span>
+<span class="defn lst"><%= d %> </span>
+
+<% end %>
+
 <button id="refresh" type="button" name="button" style="margin-left:70px"><a href="paste">make new list</a></button>
 </div>
