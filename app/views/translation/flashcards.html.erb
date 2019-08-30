@@ -14,6 +14,7 @@
 		other stuff
 		</div>
 	</div>
+	<button id="nextBtn">next</button>
 </div>
 
 
@@ -23,7 +24,7 @@
 
 
 <div class="flashcardInputWrap">
-<button id="nextBtn">next</button>
+
 	<textarea id="pasteList" name="name" rows="30" cols="80"></textarea>
 		<button class="flashcardInput">Submit</button>
 		<button id="">Paste</button>
@@ -66,6 +67,7 @@ let card = document.getElementsByClassName("card")[0];
 const flip = document.getElementsByClassName("flipper")[0];
 const back = document.getElementsByClassName("back")[0];
 const smallcard = document.getElementsByClassName("smallcard")[0];
+const smallcard2 = document.getElementsByClassName("smallcard2")[0];
 const box = document.getElementsByClassName("flashtextbox")[0];
 const button = document.getElementsByClassName("flashcardInput")[0];
 const oneSelect = document.getElementById("oneSelect2");
@@ -73,6 +75,7 @@ const twoSelect = document.getElementById("twoSelect2");
 const wrap = document.getElementsByClassName("flashcardInputWrap")[0];
 const next = document.getElementById("nextBtn");
 let bench = 0
+let ndex;
 
 back.addEventListener("click", doThis2, false);
 smallcard.addEventListener("click", doThis3, false);
@@ -169,6 +172,9 @@ function doThis4() {
 						$(allWords).css("display","none");
 						$(oneWord).css("display","block");
 						$(oneWord).addClass("onCard")
+						console.log(allWords)
+						wh = $(allWords).get(1)
+						smallcard.innerHTML = $(wh).text()
 
 						//.css("display", "block");
 					// $(".card").append(oneWord)
@@ -188,8 +194,8 @@ function doThis4() {
 }
 
 function listenerFunc(oneWord) {
-	flip.style.transform = "rotateX(180deg)";
-	card.style.transform = "rotateX(180deg)";
+	flip.style.transform = "rotateX(-180deg)";
+	// card.style.transform = "rotateX(-180deg)";
 	 i =  $(oneWord).index(".word");
 
 	 console.log(i);
@@ -203,38 +209,149 @@ function listenerFunc(oneWord) {
 	 back.innerText = flipdef[i].innerText
 }
 function nextFunc() {
-	//get the current one now
-//find the element with onCard, take off that class and add it to the next
-
-//just going to grab it from afar
+	recurse(0)
 
 // var current;
-for (var i = 0; i < card.children.length; i++) {
-  console.log(card.children.length + "length")
-    if (card.children[i].className == "word lst onCard" || card.children[i].className == "defn lst onCard") {
-			  $(card.children[i]).removeClass("onCard");
-				$(card.children[i]).css("display", "none");
-				$(card.children[i + 1]).addClass("onCard");
-				$(card.children[i + 1]).css("display", "block");
-       console.log($(card.children[i])) //
-			 console.log($(card.children[i + 1])) //.addClass("onCard");
-       // card.innerHTML = card.children[i + 1].html  //i take away the children here 
-      break;
-    // }
-	 }
-	// console.log(i)
- // card.innerText = current.innerText;
-//
 
 
-	// console.log(card.childNodes[i + 2])
-  }
+  //   for (var s = 0; s < 10; s++) {
+	//
+	// 		 console.log(card.children);
+	// 		if ( (card.children[s].className == "word lst onCard") || (card.children[s].className == "defn lst onCard") ){
+	// 		  $(card.children[s]).removeClass("onCard");
+	// 			$(card.children[s + 1]).addClass("onCard");
+  //      console.log(card.children[s + 1].className) //
+	// 		 console.log(s)
+	// 		 console.log(card.children.length) //.addClass("onCard");
+  //         smallcard2.innerHTML = $(card.children[s + 2]).text()
+  //      // card.innerHTML = card.children[i + 1].html  //i take away the children here
+  //    return;
+  //   // }
+	// } else {
+  //  console.log(s)
+	//  console.log(card.children[s].className + "in else")
+	// }
+	//
+	//
+  // }
+
+
+
+}
+
+
+function big() {
+
+	$(".smallcard").animate({
+
+		 height: '300px',
+		 top: '50%',
+		 left: '45%',
+		 width: '500px',
+		 backgroundSize: '100%',
+		 marginLeft: "-250px",
+		 zIndex: 3
+	});
+
+
 }
 
 
 
+function small() {
+setTimeout( function(){
+$(".smallcard").css({
+
+	 height: '100px',
+	 top: '160%',
+	 left: '135%',
+	 width: '200px',
+	 backgroundSize: '100%',
+	 marginLeft: "-250px",
+	 zIndex: 3
+});
+
+}, 500)
+}
+function recurse(index) {
+	// for (var s = 0; s < 10; s++) {
+
+	// 	if ( (card.children[s].className == "word lst onCard") || (card.children[s].className == "defn lst onCard") ){
+	// 		$(card.children[s]).removeClass("onCard");
+	// 		$(card.children[s + 1]).addClass("onCard");     //this doesnt happen fast enough
+	// 	 console.log(card.children[s + 1].className) //
+	// 	 console.log(s)
+	// 	 console.log(card.children.length) //.addClass("onCard");
+	// 			smallcard2.innerHTML = $(card.children[s + 2]).text()
+	// 	 // card.innerHTML = card.children[i + 1].html  //i take away the children here
+	//  return;
+   ndex = index
+	if (index >= (card.children.length - 2)) {
+		$(card.children[index]).removeClass("onCard");
+		$(card.children[index]).css("display", "none");
+   console.log("this should be gone now" +  card.children[index].innerHTML + index)
+ 	  index = 0;
+	  $(card.children[index]).addClass("onCard");
 
 
+		big();
+		setTimeout(function(){
+		index = 0;
+		small()
+		setTimeout(function(){smallcard.innerHTML = $(card.children[1]).text()}, 500)
+
+		$(card.children[index]).css("display", "block");
+	 // recurse(0);
+       }, 900);
+ } else if ( (card.children[ndex].className == "word lst onCard" || card.children[ndex].className == "defn lst onCard") && (index < (card.children.length - 3) ) ) {
+		console.log(index);
+		smallcard2.innerHTML = $(card.children[index + 2]).text();
+	 $(card.children[index]).removeClass("onCard");
+   $(card.children[index + 1]).addClass("onCard");
+        big();
+
+	 setTimeout(function(){
+		 small();
+		 setTimeout(function(){smallcard.innerHTML = $(card.children[ndex + 2]).text()}, 500)
+		 $(card.children[index + 1]).css("display", "block");
+		 $(card.children[index]).css("display", "none");
+    }, 900)
+
+	 console.log(index + 1 + "the last")
+	 console.log("size is " + card.children.length )
+
+
+
+	 return;
+
+ } else if ( (card.children[ndex].className == "word lst onCard" || card.children[ndex].className == "defn lst onCard") && (index == (card.children.length - 3)) )  {
+		console.log("bop");
+	 $(card.children[index]).removeClass("onCard");
+	 console.log(card.children[index].innerHTML)
+   // $(card.children[index + 1]).addClass("onCard");
+
+	 console.log(index + 1 + "the finish")
+	 console.log("size is " + card.children.length )
+
+	 big();
+	 setTimeout(function(){
+   small()
+	 setTimeout(function(){smallcard.innerHTML = $(card.children[0]).text()}, 500)
+	 $(card.children[index]).css("display", "none");
+	 $(card.children[index + 1]).css("display", "block");
+ }, 900)
+	 return;
+
+ } else if (!(card.children[ndex].className == "word lst onCard" || card.children[ndex].className == "defn lst onCard") && (index < (card.children.length - 2))) {
+
+		 // console.log("ending" + index)
+		 // console.log(card.children[index])
+	   recurse(index + 1);
+		 console.log("running again");
+		 return;
+ }
+
+}
 
 
 
