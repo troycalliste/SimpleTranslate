@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190814171918) do
+ActiveRecord::Schema.define(version: 20190902211746) do
+
+  create_table "languages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "code"
+    t.boolean "speak", default: false
+    t.string "voice", default: "n/a"
+  end
 
   create_table "static_pages", force: :cascade do |t|
     t.datetime "created_at", null: false

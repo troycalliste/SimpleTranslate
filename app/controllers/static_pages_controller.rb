@@ -7,6 +7,7 @@ class StaticPagesController < ApplicationController
 
 
   def home
+    @lang = Language.all
   end
 
   def flash
@@ -54,6 +55,32 @@ class StaticPagesController < ApplicationController
     # render template: 'static_pages/flash'
  end
 
+def translate
+   @info = params[:text]
+  outLang = params[:lang]
+  # @info = "you know you're right"
+  # outLang = "Czech"
+  project_id = ENV["CLOUD_PROJECT_ID"]
 
+  # Instantiates a client
+ translate = Google::Cloud::Translate.new project: project_id
+
+# The text to translate
+  @currentLang = Language.find_by(name: outLang)
+  text = @info
+# The target language
+  target = @currentLang.code
+   @speak = @currentLang.speak
+  detection = translate.detect text
+  lang = detection.language
+  @detectedLang = Language.find_by(code: lang)
+
+
+
+
+# Translates some text into Russian
+ translation = translate.translate text, to: target
+ @txt = translation
+end
 
 end

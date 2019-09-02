@@ -1,14 +1,65 @@
+
+
+
 <div class="wrp">
 <div class="wordList">
 
 </div>
 <div class="homeContent">
 </div>
-</div><script>
+
+
+
+
+
+
+
+
+
+
+<div class="tlwrap">
+
+  <div class="translateContent">
+    <div class="tlbar">
+      Translate to <button id="slctLang">French</button>
+      <div class="detected">
+        </div>
+        <div class="voiceOut"> Voice output available for:  <% Language.where(speak: true).each do |lang| %> <span><%= " | #{lang.code}" %></span>
+               <% end %>
+        </div>
+    </div>
+    <div class="textboxwrap">
+      <textarea id="translateBox" name="name" rows="5" cols="80" spellcheck="false" autocomplete="off" autocorrect="off"></textarea>
+
+      </div>
+      <div class="resultContent">
+        <div class="resultText"></div>
+      <div class="qk"></div>
+      </div>
+
+  </div>
+</div>
+
+<div class="wrap">
+  <% @lang.each do |l| %>
+  <div class="row"><%= l.name %></div>
+  <% end %>
+</div>
+</div>
+
+
+
+<script>
 
   const refSearch = document.getElementsByClassName("refSearch")[0];
   const oneSelect = document.getElementById("oneSelect");
   const twoSelect = document.getElementById("twoSelect");
+  const chooseLang = document.getElementById("slctLang");
+  const button = document.getElementsByClassName("flashcardInput")[0];
+  const translatebox = document.getElementById("translateBox");
+  const rslt = document.getElementsByClassName("resultText")[0];
+  const chooseWrap = document.getElementsByClassName("wrap")[0];
+  let running = false
 
 
 
@@ -27,6 +78,69 @@
 //   let oneLang = oneSelect.options[ oneSelect.selectedIndex ].value
 //   let twoLang = twoSelect.options[ twoSelect.selectedIndex ].value
 
+translatebox.addEventListener("input", translateInput, false)
+
+function spk(voice) {
+  console.log("speaking now")
+  chooseLang.innerText
+  spkText = document.getElementsByClassName("resultText")[0].innerText
+  responsiveVoice.speak(spkText, voice)
+}
+function translateInput() {
+  // translatebox.removeEventListener("input", translateInput, false)
+  inpText = translatebox.value
+  outLang = chooseLang.innerHTML
+  console.log(running)
+  setTimeout(function() {
+
+  $.ajax({
+        url: "translate",
+        data: {text: inpText, lang: outLang },
+        success: function(response){
+          if (response) {
+            let newText = $(response).find(".tr")
+            let detect = $(response).find(".dtct")
+            let spkIcon = $(response).find(".spkIcon")
+            let spkVoice = $(response).find(".spkVoice")
+
+
+
+          $(rslt).empty().append($(newText).text());
+          let sayVoice = $(spkVoice).text();
+          $(".detected").empty().append($(detect).text());
+          $(".qk").empty().append($(spkIcon));
+          icon = document.getElementsByClassName("icn")[0];
+          icon.removeEventListener('click', spkWrap, false);
+          icon.addEventListener('click', spkWrap, false);
+
+           function spkWrap() {
+             spk(sayVoice);
+           }
+
+          }
+          // translatebox.addEventListener("input", translateInput, false)
+        },
+        error:function(){
+         // $(rslt).empty().append("Could not find translation...")
+        }
+      });// end of ajax
+  }, 1000)
+
+}
+////////////////////////////////////////////////////////
+chooseLang.addEventListener("click", chooseTL, false)
+function chooseTL() {
+  console.log("hee")
+  if (chooseWrap.style.display == "block") {
+    chooseWrap.style.display = "none";
+  } else {
+ chooseWrap.style.display = "block";
+ chooseWrap.style.zIndex = "999";
+}
+
+}
+
+
   $('#swapLang').click(function () {
       let v1 = $('#oneSelect').val(),
           v2 = $('#twoSelect').val();
@@ -44,8 +158,13 @@ $('#swap').click(function () {
 
 });
 
-
-
+$('.row').click(function () {
+selectedLang = $(this).text()
+//so well make this default of english
+chooseLang.innerHTML = selectedLang
+chooseWrap.style.display = "none";
+translateInput()
+});
 
 
 
@@ -70,6 +189,7 @@ $('#swap').click(function () {
      const inputTxt = document.getElementById("inputTxt").value;
 
      const refContain = document.getElementsByClassName("homeContent")[0];
+     const tlContain = document.getElementsByClassName("translateContent")[0];
      const wrdList = document.getElementsByClassName("wordList")[0];
      const parsedTxt = inputTxt.replace(/\s+/g, '+');
      const str = oneSelect.options[oneSelect.selectedIndex].text;
@@ -99,6 +219,7 @@ $('#swap').click(function () {
              result2 = $(response).find(".innerList");
 
              refContain.style.display = "block";
+             tlContain.style.display = "none";
              newclss = document.getElementsByClassName("topnav")[0].className = "topnav " + str2.toLowerCase();
 
 

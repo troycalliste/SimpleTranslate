@@ -43,7 +43,7 @@ class TranslationController < ApplicationController
             # if not @originWord
         if @otherarr
            @arr << "(translation of \"#{@otherarr[index] }\" is not available)" #+ index.to_s
-        end 
+        end
 
             # else
            @farr << ""
@@ -61,6 +61,24 @@ class TranslationController < ApplicationController
 
 
    def flashcards
+     project_id = ENV["CLOUD_PROJECT_ID"]
+
+     # Instantiates a client
+    translate = Google::Cloud::Translate.new project: project_id
+
+  # The text to translate
+    text = "Hello, world!"
+   # The target language
+    target = "ru"
+
+  # Translates some text into Russian
+    translation = translate.translate text, to: target
+    @txt = translation
+   end
+   def trnslate
+
+
+
    end
 
   end

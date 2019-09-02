@@ -1,23 +1,26 @@
 
-<div class="flip-container" >
+<!-- <div class="flip-container" >
 	<div class="flipper">
-		<div class="card">
+		<div class="card"> -->
 			<!-- front content -->
-	 </div>
+	 <!-- </div>
 		<div class="back">
-			</div>
+			</div> -->
 			<!-- back content -->
-		<div class="smallcard">
+	 <div class="smallcard">
 		some stuff
 		</div>
 		<div class="smallcard2">
 		other stuff
 		</div>
-	</div>
-	<button id="nextBtn">next</button>
-</div>
+	<!-- </div> -->
+	<button id="nextBtn"><%= "#{@txt}" %></button>
+<!-- </div> -->
 
-
+<div class="outer">
+					<div class="front card"></div>
+					<div class="back"></div>
+				</div>
 
 
 
@@ -33,7 +36,7 @@
 
 		<form class="flashcardForm">
 
-			<select id="oneSelect2" name="language" onchange="selectFilter()">
+			<select id="oneSelect2" name="language" onchange="selectFilt()">
 				 <option selected class="eng">English</option>
 				 <option>French</option>
 				 <option>Spanish</option>
@@ -62,9 +65,24 @@
 
 
 <script>
+
+	function selectFilt() {
+	// var x = document.getElementById("oneSelect1").value;
+
+	oneSelect = document.getElementById("oneSelect2");
+	str = oneSelect.options[oneSelect.selectedIndex].text
+	 if (str == "English") {
+	 $('.alt2').prop('disabled', false)
+	 $('.alt').prop('disabled', true)
+	 } else {
+	  $('.alt2').prop('disabled', true)
+	  $('.alt').prop('disabled', false)
+
+	 };
+	}
 $(document).ready(function() {
-let card = document.getElementsByClassName("card")[0];
-const flip = document.getElementsByClassName("flipper")[0];
+let card = document.getElementsByClassName("front")[0];
+const flip = document.getElementsByClassName("outer")[0];
 const back = document.getElementsByClassName("back")[0];
 const smallcard = document.getElementsByClassName("smallcard")[0];
 const smallcard2 = document.getElementsByClassName("smallcard2")[0];
@@ -75,10 +93,13 @@ const twoSelect = document.getElementById("twoSelect2");
 const wrap = document.getElementsByClassName("flashcardInputWrap")[0];
 const next = document.getElementById("nextBtn");
 let bench = 0
+let toggled = false;
 let ndex;
 
-back.addEventListener("click", doThis2, false);
-smallcard.addEventListener("click", doThis3, false);
+// back.addEventListener("click", doThis2, false);
+// smallcard.addEventListener("click", doThis3, false);
+
+
 button.addEventListener('click', doThis4, false);
 function doThis() {
  console.log("its on");
@@ -86,13 +107,15 @@ function doThis() {
  // flip.style.transform = "rotateX(180deg)";
  // card.style.transform = "rotateX(180deg)";
 }
-
+// card.addEventListener("click", flipv, false);
+// function flipv() {
+//
+// }
 function doThis2() {
 
  // this.className += " hover";
 
- flip.style.transform = "rotateX(0deg)";
- card.style.transform = "rotateX(0deg)";
+
 }
 function doThis3() {
  $(".smallcard").animate({
@@ -111,6 +134,10 @@ function doThis3() {
 
 
 function doThis4() {
+console.log("clicking");
+button.removeEventListener('click', doThis4, false);
+	$(".front").empty()
+
 	let filarr = document.getElementById("pasteList").value.split("\n")
     console.log(typeof filarr)
   let i;
@@ -136,6 +163,7 @@ function doThis4() {
   let langTwo =  str2 + " Female"
   let en = "US English Male"
   let gn = "Deutsch Female"
+	let toggled = false
   if (str[0] == "E") {
     langOne = en
   } else if (str2[0] == "E") {
@@ -163,6 +191,7 @@ function doThis4() {
    data: { data_value: enfrlinks },
    success: function(response)
       { if (response) {
+				  toggled = false;
           let result = $(response).find(".arrList2");
 
 				  // let oneWord = $(result).children().first()
@@ -173,16 +202,22 @@ function doThis4() {
 						$(oneWord).css("display","block");
 						$(oneWord).addClass("onCard")
 						console.log(allWords)
-						wh = $(allWords).get(1)
+						wh = $(allWords).get(2)
 						smallcard.innerHTML = $(wh).text()
 
 						//.css("display", "block");
 					// $(".card").append(oneWord)
 					// $(allWords).css("display", "block");
 					// $(oneWord).css("display", "block");
+					button.addEventListener('click', doThis4, false);
+				card.removeEventListener("click", quickCall, false);
+				back.removeEventListener("click", quickCall, false);
+				next.removeEventListener('click', nextFunc, false);
 
-        card.addEventListener("click", function () {listenerFunc(oneWord)}, false);
-				next.addEventListener('click', nextFunc, false);
+
+        card.addEventListener("click", quickCall, false);
+				back.addEventListener("click", quickCall, false);
+      	next.addEventListener('click', nextFunc, false);
         bench = 0
 
 
@@ -192,21 +227,66 @@ function doThis4() {
 			 } }
     });
 }
+function quickCall() {
+	listenerFunc(0)
+}
+function nextFLip() {
 
-function listenerFunc(oneWord) {
-	flip.style.transform = "rotateX(-180deg)";
-	// card.style.transform = "rotateX(-180deg)";
-	 i =  $(oneWord).index(".word");
+	back.style.transform = "rotateX(180deg)";
+	card.style.transform = "rotateX(0deg)";
 
-	 console.log(i);
-  // g = i + 1;
-	// word = document.getElementsByClassName("word");
-  // word[g].style.display = "block";
-	// word[i].style.display = "none";
-	flipdef = document.getElementsByClassName("defn");
-	console.log(oneWord[i]);
-	flipdef[i].style.display = "block"
-	 back.innerText = flipdef[i].innerText
+ card.style.zIndex = "999";
+ back.style.zIndex = "-999";
+ toggled = false;
+}
+function listenerFunc(ndex) {
+ console.log(toggled + "toggled")
+ console.log(card.children[ndex].className + "are the children")
+
+	//we have to do a loop or recursive here
+
+	if ( (card.children[ndex].className == "word lst onCard" ) && toggled == false)
+   {
+
+		 back.style.transform = "rotateX(0deg)";
+		 card.style.transform = "rotateX(-180deg)";
+		 card.style.zIndex = "-999";
+			 back.style.zIndex = "999";
+		 //this is the one
+		 //the index of it is defs index
+		 console.log("heres the definition")
+		   index =  $(card.children[ndex]).index(".word")
+			 console.log(index)
+			 ourdef = $(".defn").eq(index) // jsais pas exactmnt le syntax
+			 //ca marche mtnt
+			 console.log("from listener" + $(ourdef).text() + "is def")
+			 back.innerHTML = $(ourdef).text()
+       toggled = true
+			 console.log(toggled + "now")
+			 console.log("it was false just made it true ")
+
+   } else if (toggled == true)
+    {
+			console.log("flipping back over")
+			back.style.transform = "rotateX(180deg)";
+			card.style.transform = "rotateX(0deg)";
+
+		 card.style.zIndex = "999";
+ 		 back.style.zIndex = "-999";
+
+         toggled = false;
+				 console.log("it was true just made it false ")
+    } else {
+			console.log("listening again")
+			listenerFunc(ndex + 1)
+			//
+		}
+
+	 //take its definition on the flip over   .... we dont have to find the card text
+	 //just find on card's index put it on the def
+	//  i =  $(oneWord).index(".word");
+
+
 }
 function nextFunc() {
 	recurse(0)
@@ -258,7 +338,7 @@ function big() {
 
 
 
-function small() {
+function small(text) {
 setTimeout( function(){
 $(".smallcard").css({
 
@@ -270,12 +350,14 @@ $(".smallcard").css({
 	 marginLeft: "-250px",
 	 zIndex: 3
 });
-
+smallcard.innerHTML = text
 }, 500)
+ // setTimeout(function(){
+ // }, 3000)
 }
 function recurse(index) {
 	// for (var s = 0; s < 10; s++) {
-
+  next.removeEventListener('click', nextFunc, false);
 	// 	if ( (card.children[s].className == "word lst onCard") || (card.children[s].className == "defn lst onCard") ){
 	// 		$(card.children[s]).removeClass("onCard");
 	// 		$(card.children[s + 1]).addClass("onCard");     //this doesnt happen fast enough
@@ -286,63 +368,111 @@ function recurse(index) {
 	// 	 // card.innerHTML = card.children[i + 1].html  //i take away the children here
 	//  return;
    ndex = index
-	if (index >= (card.children.length - 2)) {
-		$(card.children[index]).removeClass("onCard");
-		$(card.children[index]).css("display", "none");
-   console.log("this should be gone now" +  card.children[index].innerHTML + index)
- 	  index = 0;
-	  $(card.children[index]).addClass("onCard");
+	// if (index >= (card.children.length - 2)) {
+	// 	$(card.children[index]).removeClass("onCard");
+	// 	$(card.children[index]).css("display", "none");
+ //   console.log("this should be gone now" +  card.children[index].innerHTML + index)
+ // 	  index = 0;
+	//   $(card.children[index]).addClass("onCard");
+ //
+ //
+	// 	big();
+	// 	setTimeout(function(){
+	// 	index = 0;
+	// 	small()
+	// 	setTimeout(function(){smallcard.innerHTML = $(card.children[1]).text()}, 500)
+ //
+	// 	$(card.children[index]).css("display", "block");
+	//  // recurse(0);
+ //       }, 900);
+ // } else
+ // if ( (card.children[ndex].className == "word lst onCard" ) && (index == (card.children.length - 2)) )  {
+	//  smallcard.innerHTML = $(card.children[0]).text()
+	//  console.log("the neg 4")
+	//  console.log($(card.children[(index + 2)]).text() + "is the text here ");
+	//  console.log($(card.children[(index)]).text() + "is the text here ");""
+	//  big();
+ //
+	//  nextFLip()
+	//  // smallcard2.innerHTML = $(card.children[index + 2]).text();
+	// $(card.children[index]).removeClass("onCard");
+	// $(card.children[index + 2]).addClass("onCard");
+ //
+ //
+ // txt = $(card.children[index + 4]).text()
+ //
+	// setTimeout(function(){
+	// 	small(txt);
+ //
+	// 	$(card.children[index + 2]).css("display", "block");
+	// 	$(card.children[index]).css("display", "none");
+	//  }, 900)
+ //
+	// console.log(index + 1 + "the last")
+	// console.log("size is " + card.children.length )
+ //
+ //
+ //
+	// return;
 
+ // } else
 
+ if ( (card.children[ndex].className == "word lst onCard") && (index < (card.children.length - 3) ) ) {
+		smallcard.innerHTML = $(card.children[index + 2]).text()
+		 console.log($(card.children[index + 4]).text() + "is the text here ");
+		 console.log($(card.children[index + 2]).text() + "is the text here ");
+		 console.log($(card.children[index]).text() + "is the text here ");
 		big();
-		setTimeout(function(){
-		index = 0;
-		small()
-		setTimeout(function(){smallcard.innerHTML = $(card.children[1]).text()}, 500)
-
-		$(card.children[index]).css("display", "block");
-	 // recurse(0);
-       }, 900);
- } else if ( (card.children[ndex].className == "word lst onCard" || card.children[ndex].className == "defn lst onCard") && (index < (card.children.length - 3) ) ) {
 		console.log(index);
-		smallcard2.innerHTML = $(card.children[index + 2]).text();
+		nextFLip()
+		// smallcard2.innerHTML = $(card.children[index + 2]).text();
 	 $(card.children[index]).removeClass("onCard");
-   $(card.children[index + 1]).addClass("onCard");
-        big();
+   $(card.children[index + 2]).addClass("onCard");
+
+	 txt =  $(card.children[index + 4]).text()
+
+
 
 	 setTimeout(function(){
-		 small();
-		 setTimeout(function(){smallcard.innerHTML = $(card.children[ndex + 2]).text()}, 500)
-		 $(card.children[index + 1]).css("display", "block");
+		 small(txt);
+
+		 $(card.children[index + 2]).css("display", "block");
 		 $(card.children[index]).css("display", "none");
     }, 900)
 
 	 console.log(index + 1 + "the last")
 	 console.log("size is " + card.children.length )
 
-
+   setTimeout(function(){next.addEventListener('click', nextFunc, false);}, 1500)
 
 	 return;
 
- } else if ( (card.children[ndex].className == "word lst onCard" || card.children[ndex].className == "defn lst onCard") && (index == (card.children.length - 3)) )  {
+ } else if ( (card.children[ndex].className == "word lst onCard" ) && (index == (card.children.length - 3)) )  {
+	 smallcard.innerHTML = $(card.children[0]).text()
+	 big();
+	 nextFLip()
 		console.log("bop");
 	 $(card.children[index]).removeClass("onCard");
 	 console.log(card.children[index].innerHTML)
    // $(card.children[index + 1]).addClass("onCard");
 
-	 console.log(index + 1 + "the finish")
+	 console.log(index + "last is running")
 	 console.log("size is " + card.children.length )
-
-	 big();
-	 setTimeout(function(){
-   small()
-	 setTimeout(function(){smallcard.innerHTML = $(card.children[0]).text()}, 500)
 	 $(card.children[index]).css("display", "none");
-	 $(card.children[index + 1]).css("display", "block");
+
+	 index = 0
+   $(card.children[index]).addClass("onCard");
+
+	 txt = $(card.children[0]).text()
+	 setTimeout(function(){
+   small(txt)
+
+	 $(card.children[0]).css("display", "block");
  }, 900)
+ setTimeout(function(){next.addEventListener('click', nextFunc, false);}, 1500)
 	 return;
 
- } else if (!(card.children[ndex].className == "word lst onCard" || card.children[ndex].className == "defn lst onCard") && (index < (card.children.length - 2))) {
+ } else if (!(card.children[ndex].className == "word lst onCard") && (index < (card.children.length - 2))) {
 
 		 // console.log("ending" + index)
 		 // console.log(card.children[index])
@@ -350,6 +480,7 @@ function recurse(index) {
 		 console.log("running again");
 		 return;
  }
+
 
 }
 

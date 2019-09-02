@@ -1,0 +1,11 @@
+<div class="tr">
+  <%= @txt %>
+
+  </div>
+  <div class="dtct">
+    <%= "Detected Language: #{@detectedLang.name}" %>
+    </div>
+    <% if @speak %>
+       <div class="spkIcon"><i class='icn fas fa-volume-up'></i></div>
+    <% end %>
+<div class="spkVoice"><%= @currentLang.voice %></div>
