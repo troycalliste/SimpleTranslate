@@ -1,0 +1,310 @@
+<div id="mySidenav" class="sidenav">
+  <div class="navImg"><%= image_tag("logo.png") %></div>
+  <div class="navW">
+   <a class="alink" href="#">About Simple Translate</a>
+   <a class="tlink" href="#">Translator</a>
+   <a class="rlink" href="#">References</a>
+   <a class="alink" href="#">Paste</a>
+   <a class="alink" href="#">Flashcards</a>
+  </div>
+</div>
+
+
+<div class="lownav">
+  <div class="refnav">
+    <div class="refavail">
+      Voice output available for: <% Language.where(speak: true).each do |lang| %><span class="refspeak refspeakCodes"><%="#{lang.code}" %></span>
+            <% end %>
+    </div>
+    <div class="refmenu"><i class="fas fa-ellipsis-h"></i></div>
+  </div>
+<div class="reflogo"><div class="hattrick"><span class="logo1">Simple</span><span class="logo2">Translate</span></div>
+
+  <span class="logged"><i class="fas fa-user"></i> <%= @using %></span></div>
+
+<div class="topnav">
+<div class="searchcontain">
+<div class="searchwrap">
+  <div class="search-container">
+
+    <div class="inputsm"><input type="text" id="inputTxt" placeholder="Search Text Examples...">
+        <button class="refSearch" type='button'><i class="fa fa-search"></i></button>
+    </div>
+
+
+  </div>
+  <div class="langwrap">
+  <div class="langselect">
+   <form>
+     <div class="selectWrap">
+     <select id="oneSelect" name="language">
+        <option selected>English</option>
+        <option>French</option>
+        <option>Spanish</option>
+        <option>German</option>
+        <option>Italian</option>
+        <option>Portuguese</option>
+    </select>
+    </div>
+  </form>
+  </div>
+  <div class="langselectsw">
+    <div class="swap">
+      <span><img id="swapLang" src="https://img.icons8.com/ultraviolet/40/000000/synchronize.png"></span>
+    </div>
+  </div>
+  <div class="langselect">
+   <form>
+     <div class="selectWrap">
+     <select id="twoSelect" name="language">
+
+       <option>English</option>
+       <option selected>French</option>
+       <option>Spanish</option>
+       <option>German</option>
+       <option>Italian</option>
+       <option>Portuguese</option>
+    </select>
+    </div>
+  </form>
+  </div>
+  </div>
+
+
+
+  </div>
+</div>
+</div>
+
+<div class="midref">
+<div class="refinfo">
+  <h2 class="lgg">Online translator, flashcards and reference dictionary</h2>
+  <br>
+  Collins is a major publisher of Educational, Language and Geographic content,
+  and have been publishing innovative, inspiring and informative books for over
+  <a style="text-decoration:underline;" href="https://www.collinsdictionary.com/about">
+    200 years</a>.
+    <br>
+    <br>
+  Collins online dictionary and reference resources draw on the wealth of
+  reliable and authoritative information
+  about language, thanks to the extensive use of
+  our <a style="text-decoration:underline;" href="https://www.collinsdictionary.com/cobuild#corpus">corpora</a>
+  - vast databases of language - both in
+  English and in other languages. These databases allow
+  experienced Collins lexicographers to analyse how
+  language is really used, and monitor how language
+  changes around the world. With the benefit of these corpora,
+  our language specialists can be sure that they reflect accurate
+  and authentic language throughout Collins dictionary and reference titles.
+</div>
+       <div class="refrecent">
+       <div class="recentcontain">
+         <% current_user.references.last(3).each do |r| %>
+          <div class="refeach"><%= link_to r.name, users_path, class: "recenteach" %>
+
+          </div>
+         <% end %>
+
+       </div>
+       </div>
+</div>
+
+<div class="reffooter">
+  <div class="reffoot1">
+    <div class="reffoot1le">
+      <ul class="footone">
+        <li><h2>Languages</h2></li>
+        <li><%= link_to "English"%></li>
+        <li><%= link_to "French"%></li>
+        <li><%= link_to "Spanish"%></li>
+        <li><%= link_to "German"%></li>
+        <li><%= link_to "Italian"%></li>
+        <li><%= link_to "Portuguese"%></li>
+      </ul>
+    </div>
+    <div class="reffoot1ri">
+      <ul class="foottwo">
+        <li><h2>Other Links</h2></li>
+        <li><%= link_to "References"%></li>
+        <li><%= link_to "Translation"%></li>
+        <li><%= link_to "Flashcards"%></li>
+        <li><%= link_to "Look-up Tool"%></li>
+        <li><%= link_to "History"%></li>
+        <li><%= link_to "Favorites"%></li>
+      </ul>
+    </div>
+  </div>
+  <div class="reffoot2">
+    <div class="reffoot2le">
+      <ul class="footthree">
+        <li><h2>Get To Know Us</h2></li>
+        <li><%= link_to "About"%></li>
+        <li><%= link_to "Facebook"%></li>
+        <li><%= link_to "Twitter"%></li>
+        <li><%= link_to "Instagram"%></li>
+        <li><%= link_to "Contact Us"%></li>
+      </ul>
+    </div>
+    <div class="reffoot2ri">
+      <ul class="footone">
+        <li><h2>Languages</h2></li>
+        <li><%= link_to "English"%></li>
+        <li><%= link_to "French"%></li>
+        <li><%= link_to "Spanish"%></li>
+        <li><%= link_to "German"%></li>
+        <li><%= link_to "Italian"%></li>
+        <li><%= link_to "Portuguese"%></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>      <!-- lownav  -->
+
+
+
+<div class="wordList">
+</div>
+
+<div class="homeContent">
+</div>
+
+<!-- </div> -->
+<script>
+  const input = document.getElementById("inputTxt");
+  const refSearch = document.getElementsByClassName("refSearch")[0];
+  const oneSelect = document.getElementById("oneSelect");
+  const twoSelect = document.getElementById("twoSelect");
+  const refMenu = document.getElementsByClassName("refmenu")[0];
+  const nav = document.getElementsByClassName("sidenav")[0];
+  const wrapALL = document.getElementsByClassName("wrapALL")[0];
+
+   input.addEventListener("keyup", function(event) {
+     if (this.value == '' || this.value == this.defaultValue) {
+       return
+   } else if (event.keyCode === 13) {
+       event.preventDefault();
+       refSearch.click();
+      }
+    });
+    refSearch.addEventListener("click", function(event){
+     if (input.value == '' || input.value == this.defaultValue) {
+       return
+     }
+     event.preventDefault()
+     const inputTxt = document.getElementById("inputTxt").value;
+     const refContain = document.getElementsByClassName("homeContent")[0];
+     const tlContain = document.getElementsByClassName("translateContent")[0];
+     const wrdList = document.getElementsByClassName("wordList")[0];
+     const parsedTxt = inputTxt.replace(/\s+/g, '+');
+     const str = oneSelect.options[oneSelect.selectedIndex].text;
+     const str2 = twoSelect.options[twoSelect.selectedIndex].text;
+     const reverso = "https://context.reverso.net/translation/";
+     const translateUrl = reverso + str.toLowerCase() + "-" + str2.toLowerCase() + "/" + parsedTxt;
+     console.log(translateUrl)
+      // console.log(translateUrl);
+      // $('.homeContent').load('grabber.php?url='+ translateUrl);
+      // $.get(translateUrl, function (data) {
+      //   txt = $(data).find('.text').html();
+      //   console.log(txt)
+      // $("").append(txt);
+      // });
+      // $(".homeContent").load("demo_test.txt");
+
+
+       $.ajax({
+
+        url: "flash",
+        data: { data_value: translateUrl, searchText: inputTxt },
+        success: function(response)
+           {
+             result = $(response).find(".myurl");
+             result2 = $(response).find(".innerList");
+             refContain.style.display = "block";
+             // tlContain.style.display = "none";
+             newclss = document.getElementsByClassName("topnav")[0].className = "topnav " + str2.toLowerCase();
+             function uniqArr(value, index, self) {
+               return self.indexOf(value) === index;
+              }
+             // $(".topnav").css("background-size", "2400px 1300px")
+             // $(".topnav").css("background-position", " center")
+            wrdList.style.display = "block";
+            $(".homeContent").empty().append(result)
+            $(".wordList").empty().append(result2)
+            let french = document.getElementsByClassName("myarr")[0].innerText;
+            const frencharr = french.replace(/[\[\]']/g,'' ).replace(/"/g,"").split(", ");
+            finalArr = frencharr.filter(uniqArr);
+            document.getElementsByClassName("myarr")[0].innerHTML = finalArr
+            // $(".homeContent").append(result2)
+            // const rsltBorder = document.getElementsByClassName("resultborder")[0];
+            // rsltBorder.addEventListener("mouseover", showIcons, false)
+            $( ".fa-heart" ).click(
+             function() {
+               if ($( this ).hasClass( "far" )) {
+              // $( this ).replaceWith( '<i class="heart fas fa-heart"></i>' )
+              $( this ).addClass( "fas" ).removeClass( "far" )
+
+              $( this ).click( function() {console.log("there are")})
+              prnt = $( this ).closest( ".resultborder" )
+              text1 = $( prnt ).children(".results").text()
+              tlate = $( this ).closest( ".flresults" ).text()
+              addFavorite(text1, tlate);
+              console.log(text1, tlate)
+
+            } else {
+              $( this ).addClass( "far" ).removeClass( "fas" )
+              prnt = $( this ).closest( ".resultborder" )
+              text1 = $( prnt ).children(".results").text()
+              removeFavorite(text1);
+              console.log("deleting")
+            }
+           });
+            $( ".resultborder" ).hover(
+             function() {
+             // console.log( $( this ) );
+             $( this ).css("background-color", "pink");
+             $( this ).find( ".stuff" ).css( "visibility", "visible" );
+
+
+             }, function() {
+              $( this ).css("background-color", "transparent")
+              $( this ).find( ".stuff" ).css( "visibility", "hidden" );
+             }
+           );
+         }
+         });
+
+      function addFavorite(name, trnslt) {
+        $.ajax({
+         url: "flashfavorite",
+         data: { name: name, translate: trnslt }
+     });
+   }
+   function removeFavorite(name) {
+     $.ajax({
+      url: "delfavorite",
+      data: { name: name }
+  });
+}
+  function showIcons() {
+    console.log("hovering now");
+  }
+
+     });
+
+
+
+
+     refMenu.addEventListener("click", showNav, false)
+     function showNav() {
+      nav.style.width = "250px"
+      refMenu.addEventListener("click", closeNav, false)
+     }
+     function closeNav() {
+       // console.log("workddd")
+      nav.style.width = "0px"
+      refMenu.removeEventListener("click", closeNav, false)
+      // chooseWrap.style.display = "none";
+     }
+</script>

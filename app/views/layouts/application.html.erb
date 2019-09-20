@@ -3,68 +3,21 @@
   <head>
     <title>SimpleTranslate</title>
     <%= csrf_meta_tags %>
-
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application',  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://kit.fontawesome.com/2b5b93b22c.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <div class="wrapALL">
-    <div class="lownav">
-    <div class="topnav">
-      <div class="search-container">
-
-        <input type="text" id="inputTxt">
-        <button class="refSearch" type='button'><i class="fa fa-search"></i></button>
-
-      </div>
-      <div class="langselect">
-       <form>
-         <div class="selectWrap">
-         <select id="oneSelect" name="language">
-            <option selected>English</option>
-            <option>French</option>
-            <option>Spanish</option>
-            <option>German</option>
-            <option>Italian</option>
-            <option>Portuguese</option>
-        </select>
-        </div>
-      </form>
-      </div>
-      <div class="langselect">
-        <div class="swap">
-          <span><img id="swapLang" src="https://img.icons8.com/ultraviolet/40/000000/synchronize.png"></span>
-        </div>
-      </div>
-      <div class="langselect">
-
-       <form>
-         <div class="selectWrap">
-         <select id="twoSelect" name="language">
-
-           <option>English</option>
-           <option selected>French</option>
-           <option>Spanish</option>
-           <option>German</option>
-           <option>Italian</option>
-           <option>Portuguese</option>
-        </select>
-        </div>
-      </form>
-      </div>
+  <%= yield %>
     </div>
-
-
-
-
-      </div>
-      <%= yield %>
-  </div>
   <script src="https://code.responsivevoice.org/responsivevoice.js?key=a1Jq81v2"></script>
   </body>
 </html>

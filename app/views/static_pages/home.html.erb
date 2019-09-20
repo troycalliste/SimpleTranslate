@@ -1,12 +1,15 @@
-
-
-
-<div class="wrp">
-<div class="wordList">
-
+<div id="mySidenav" class="sidenav">
+  <div class="navImg"><%= image_tag("logo.png") %></div>
+  <div class="navW">
+  <a class="alink" href="#">About Simple Translate</a>
+  <a class="tlink" href="#">Translator</a>
+  <a class="rlink" href="#">References</a>
+  <a class="alink" href="#">Paste</a>
+  <a class="alink" href="#">Flashcards</a>
+  </div>
 </div>
-<div class="homeContent">
-</div>
+
+
 
 
 
@@ -19,36 +22,73 @@
 
 <div class="tlwrap">
 
+
+
   <div class="translateContent">
+    <div class="fill">
+
+
+
+
+
+
+    <div class="overflownc">
     <div class="tlbar">
-      Translate to <button id="slctLang">French</button>
-      <div class="detected">
+
+      <div class="first">
+        <div class="dtc"><div class="detected">Detect Language</div></div>
         </div>
-        <div class="voiceOut"> Voice output available for:  <% Language.where(speak: true).each do |lang| %> <span><%= " | #{lang.code}" %></span>
-               <% end %>
+        <div class="second">
+          Translate to <strong id="slctLang">French</strong>
+
         </div>
     </div>
     <div class="textboxwrap">
       <textarea id="translateBox" name="name" rows="5" cols="80" spellcheck="false" autocomplete="off" autocorrect="off"></textarea>
-
-      </div>
-      <div class="resultContent">
+    </div>
+    <div class="resultContent">
         <div class="resultText"></div>
       <div class="qk"></div>
-      </div>
+    </div>
+    </div>
 
+
+
+
+  </div>
+  <div class="wrapList">
+    <!-- <div class="lwab"> -->
+    <% @lang.each do |l| %>
+    <div class="row"><%= l.name %></div>
+    <% end %>
+    </div>
   </div>
 </div>
+<div class="voiceOut">Voice output available for: <% Language.where(speak: true).each do |lang| %><span class="speakCodes"><%="#{lang.code}" %></span>
+      <% end %>
+</div>
 
-<div class="wrap">
-  <% @lang.each do |l| %>
-  <div class="row"><%= l.name %></div>
+<!-- </div> -->
+<% if signed_in? %>
+  <div class="bpmw"><%= current_user.email %>
+     <% current_user.attributes.each do |k, v| %>
+      <b><%= k %>:</b> <%= v %> <br>
+
   <% end %>
+  <%= button_to 'Sign out', sign_out_path, method: :delete %>
+
+<% else %>
+<p> Welcome, please login to continue <a href="/auth/google_oauth2">Sign in with Google</a></p>
+<%= link_to 'Sign in', sign_in_path %>
+<% end %>
 </div>
-</div>
 
 
 
+
+
+
+<!-- </div> -->
 <script>
 
   const refSearch = document.getElementsByClassName("refSearch")[0];
@@ -58,10 +98,35 @@
   const button = document.getElementsByClassName("flashcardInput")[0];
   const translatebox = document.getElementById("translateBox");
   const rslt = document.getElementsByClassName("resultText")[0];
-  const chooseWrap = document.getElementsByClassName("wrap")[0];
+  const chooseWrap = document.getElementsByClassName("wrapList")[0];
+  const nav = document.getElementsByClassName("sidenav")[0];
+  const menuB = document.getElementsByClassName("fondIcn")[0];
+  const wrpall = document.getElementsByClassName("wrapALL")[0];
+  const rsltcon = document.getElementsByClassName("resultContent")[0];
   let running = false
+  const translateContent = document.getElementsByClassName("translateContent")[0];
 
 
+  function chooseTL() {
+    console.log("heho")
+    if (chooseWrap.style.display == "block") {
+      chooseWrap.style.display = "none";
+    } else {
+    console.log("hee");
+   chooseWrap.style.display = "block";
+   chooseWrap.style.zIndex = "999";
+   setTimeout(function(){wrpall.addEventListener("click", closeNav, false)}, 500)
+    }
+}
+  chooseLang.addEventListener("click", chooseTL, false);
+
+  $('.row').click(function () {
+  selectedLang = $(this).text();
+  //so well make this default of english
+  chooseLang.innerHTML = selectedLang;
+  chooseWrap.style.display = "none";
+  translateInput();
+  });
 
 
 
@@ -79,7 +144,19 @@
 //   let twoLang = twoSelect.options[ twoSelect.selectedIndex ].value
 
 translatebox.addEventListener("input", translateInput, false)
+menuB.addEventListener("click", showNav, false)
+function showNav() {
+ nav.style.width = "250px"
+ wrpall.addEventListener("click", closeNav, false)
+}
+function closeNav() {
+  console.log("workddd")
+ nav.style.width = "0px"
 
+ wrpall.removeEventListener("click", closeNav, false)
+ chooseWrap.style.display = "none";
+
+}
 function spk(voice) {
   console.log("speaking now")
   chooseLang.innerText
@@ -89,19 +166,28 @@ function spk(voice) {
 function translateInput() {
   // translatebox.removeEventListener("input", translateInput, false)
   inpText = translatebox.value
+  // if (inpText == "") { inpText = " " }
   outLang = chooseLang.innerHTML
-  console.log(running)
+  console.log(inpText)
+  console.log(outLang)
   setTimeout(function() {
-
   $.ajax({
-        url: "translate",
+        url: "http://localhost:3000/static_pages/translate",
         data: {text: inpText, lang: outLang },
         success: function(response){
+          console.log("had success")
+
+
+
+
           if (response) {
+            if (!(inpText == "")) {
             let newText = $(response).find(".tr")
             let detect = $(response).find(".dtct")
             let spkIcon = $(response).find(".spkIcon")
             let spkVoice = $(response).find(".spkVoice")
+
+
 
 
 
@@ -118,6 +204,13 @@ function translateInput() {
            }
 
           }
+          rslt.style.background = "#D3EBF4"
+          translateContent.style.height = rslt.offsetHeight + 48 + "px";
+          // console.log(rslt.offsetHeight)
+
+        } else {
+          rsltcon.style.background = "white";
+        };
           // translatebox.addEventListener("input", translateInput, false)
         },
         error:function(){
@@ -128,17 +221,8 @@ function translateInput() {
 
 }
 ////////////////////////////////////////////////////////
-chooseLang.addEventListener("click", chooseTL, false)
-function chooseTL() {
-  console.log("hee")
-  if (chooseWrap.style.display == "block") {
-    chooseWrap.style.display = "none";
-  } else {
- chooseWrap.style.display = "block";
- chooseWrap.style.zIndex = "999";
-}
 
-}
+
 
 
   $('#swapLang').click(function () {
@@ -158,13 +242,6 @@ $('#swap').click(function () {
 
 });
 
-$('.row').click(function () {
-selectedLang = $(this).text()
-//so well make this default of english
-chooseLang.innerHTML = selectedLang
-chooseWrap.style.display = "none";
-translateInput()
-});
 
 
 
@@ -212,7 +289,7 @@ translateInput()
        $.ajax({
 
         url: "flash",
-        data: { data_value: translateUrl },
+        data: { data_value: translateUrl, searchText: inputTxt },
         success: function(response)
            {
              result = $(response).find(".myurl");
@@ -229,6 +306,7 @@ translateInput()
              // $(".topnav").css("background-position", " center")
 
             wrdList.style.display = "block";
+
             $(".homeContent").empty().append(result)
             $(".wordList").empty().append(result2)
             let french = document.getElementsByClassName("myarr")[0].innerText;

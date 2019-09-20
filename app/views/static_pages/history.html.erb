@@ -1,0 +1,12 @@
+
+<% if signed_in? %>
+
+  <div class="hist"><%= current_user.email %>
+  <% @ref.each do |v| %>
+      <h1 style="color:white"><%= v.name %></h1>
+       <% v.definitions.each do |d| %>
+          <p><%= d.name %></p>
+     <% end %>
+  <% end %>
+
+<% end %>

@@ -161,7 +161,8 @@ function parseTxt() {
   arr2 = [] //this will be based on user input language choice,  so we only use one line for it
   for (i = 0; i < ks.length; i++) {
     arr2.push(ks[i]);
-    word = ks[i].replace(/\s+/g, '-');
+    mn = ks[i].replace(/\s+/g, '-');
+    word = mn.replace("’","-")
     enfrlinks.push(langlink + word);
   }
   // red.innerHTML = arr.join(" ")

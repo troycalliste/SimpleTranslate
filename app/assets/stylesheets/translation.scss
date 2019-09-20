@@ -1,9 +1,9 @@
 // Place all the styles related to the translation controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-// .lownav {
-//   display: none;
-// }
+.lownav {
+  // display: none;
+}
 .topnav {
 
 }
@@ -98,7 +98,7 @@
  z-index: 1;
 }
 .wrapALL {
-  background: #393E40;
+  // background: #393E40;
 }
 // .word:hover .tooltiptext {
 //   visibility: visible;
@@ -257,21 +257,3 @@ float: right;
 		-ms-transform: rotateX(180deg);
 		transform: rotateX(180deg);
 	}
-	// .outer:hover .front {
-	// 	-webkit-transform:rotateX(-180deg);
-	// 	-moz-transform: rotateX(-180deg);
-	// 	-o-transform: rotateX(-180deg);
-	// 	-ms-transform: rotateX(-180deg);
-	// 	transform: rotateX(-180deg);
-	// 	z-index:-999;
-	// 	cursor:pointer;
-	// }
-	// .outer:hover .back {
-	// 	-webkit-transform:rotateX(0deg);
-	// 	-moz-transform: rotateX(0deg);
-	// 	-o-transform: rotateX(0deg);
-	// 	-ms-transform: rotateX(0deg);
-	// 	transform: rotateX(0deg);
-	// 	z-index:999;
-	// 	cursor:pointer;
-	// }

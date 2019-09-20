@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190902211746) do
+ActiveRecord::Schema.define(version: 20190918215003) do
+
+  create_table "definitions", force: :cascade do |t|
+    t.integer "reference_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["reference_id"], name: "index_definitions_on_reference_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "translation"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "languages", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -21,9 +38,31 @@ ActiveRecord::Schema.define(version: 20190902211746) do
     t.string "voice", default: "n/a"
   end
 
+  create_table "references", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["user_id"], name: "index_references_on_user_id"
+  end
+
   create_table "static_pages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "google_token"
+    t.string "google_refresh_token"
+    t.string "name"
+    t.string "email"
+    t.string "encrypted_password", limit: 128
+    t.string "confirmation_token", limit: 128
+    t.string "remember_token", limit: 128
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
 end

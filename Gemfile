@@ -31,7 +31,11 @@ gem 'rest-client', '~> 2.0', '>= 2.0.2'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "clearance"
+gem 'jquery-rails'
+# gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,0 +1,194 @@
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Abel');
+
+  body {
+    background: #F0EDED;
+    font-family: 'Abel', sans-serif;
+  }
+
+  #wrapper {
+    width: 100%;
+
+    @media screen and (min-width: 1024px) {
+      width: 1100px;
+      margin: 0 auto;
+    }
+
+    .form-layout {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto auto auto;
+      grid-template-areas: "left" "." "right";
+      background: #fff;
+
+      @media screen and (min-width: 1024px) {
+        grid-template-columns: 50% 50%;
+        grid-template-areas: "left right";
+        grid-template-rows: auto;
+        flex-direction: row;
+        margin: 0 auto;
+      }
+
+      .form-left {
+        grid-area: left;
+        background: url('https://wptricks.dk/billeder/form_bg-1024x819.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+        padding: 25px;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 33% 33% 33%;
+        grid-template-areas:
+          "logo"
+          "info"
+          "footer";
+
+        &:before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '';
+          background: rgba(0,0,0,0.75);
+          width: 100%;
+          height: 100%;
+        }
+
+        .logo {
+          grid-area: logo;
+          align-self: start;
+          color: #fff;
+          z-index: 2;
+          font-size: 22px;
+          text-align: center;
+          text-transform: uppercase;
+        }
+
+        .info {
+          grid-area: info;
+          color: #fff;
+          z-index: 2;
+          text-align: center;
+          font-size: 32px;
+          text-transform: uppercase;
+          align-self: center;
+
+          span {
+            display: block;
+            font-size: 24px;
+            text-transform: none;
+          }
+        }
+
+        .footer {
+          grid-area: footer;
+          color: #fff;
+          z-index: 2;
+          align-self: end;
+          text-align: center;
+
+          a {
+            color: #fff;
+          }
+        }
+
+      }
+
+      .form-right {
+        grid-area: right;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 25px 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+
+        div {
+          width: 100%;
+          margin: 10px 0;
+          position: relative;
+
+          input {
+            width: 100%;
+            border: 0;
+            border-bottom: 2px solid #e1e1e1;
+            padding: 8px 0;
+            box-sizing: border-box;
+            color: #666;
+            transition: all .2s ease;
+
+            &:focus {
+              outline: none;
+              border-color: #AFD275;
+              box-sizing: border-box;
+            }
+          }
+        }
+
+        .buttons {
+          display: flex;
+          justify-content: space-between;
+          flex-direction: row;
+          align-items: center;
+
+          a {
+
+            &.create-account {
+              background: #c2cad0;
+              display: inline-block;
+              color: #000;
+              text-decoration: none;
+              padding: 8px 15px;
+              transition: all .2s ease;
+
+              &:hover {
+                background: #AFD275;
+                color: #000;
+              }
+            }
+
+            &.forgot-login {
+              color: #000;
+              transition: all .2s ease;
+
+              &:hover {
+                color: #E7717D;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+</style>
+<div id="wrapper">
+  <div class="form-layout">
+    <div class="form-left">
+      <div class="logo">Aris Kuckovic</div>
+      <div class="info">Free form by Aris Kuckovic<span>Feel free to use it!</span></div>
+      <div class="footer">
+        <a href="https://twitter.com/kuckovic">Follow me on Twitter</a>
+      </div>
+    </div>
+    <form action="#" class="form-right">
+      <div>
+        <input type="text" name="username" id="username" placeholder="Username" autocomplete="off" />
+      </div>
+      <div>
+        <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" />
+      </div>
+      <div>
+        <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" />
+      </div>
+      <div>
+        <input type="password" name="repeatpassword" id="repeatpassword" placeholder="Repeat password" autocomplete="off" />
+      </div>
+      <div class="buttons">
+        <a class="create-account" href="#">Create account</a>
+        <a class="forgot-login" href="#">Forgot login?</a>
+      </div>
+    </form>
+  </div>
+</div>
