@@ -1,12 +1,69 @@
-
+<div class="histnv">
 <% if signed_in? %>
 
   <div class="hist"><%= current_user.email %>
+    <%= @ref.count %>
   <% @ref.each do |v| %>
-      <h1 style="color:white"><%= v.name %></h1>
-       <% v.definitions.each do |d| %>
-          <p><%= d.name %></p>
-     <% end %>
-  <% end %>
+  <div class="histrep">
+  <div class="histwrap">
+      <div class="histmain"><%= v.name %></div>
+      <% v.definitions.limit(3).each do |d| %>
+      <div class="histsmalldefs"><%= d.name %></div>
+          <% end %>
 
+      </div>
+      </div>
+        <!-- <br> -->
+
+  <% end %>
+  </div>
 <% end %>
+<br>
+<div class="pag">
+   <%= @num %>
+
+  <% (1..@divnum).each do |n| %>
+  <span class="pagbase"><%= n %></span>
+  <% end %>
+</div>
+
+<%= @divnum %>
+</div> <!-- histnv -->
+
+
+
+<script>
+  const rep = document.getElementsByClassName("histrep")[0]
+  const rep1 = document.getElementsByClassName("histrep")[1]
+
+
+$(".pagbase").click(function() {
+    index = $(this).index() + 1
+    console.log(index)
+    // just add one
+    num2 =  index * 25
+    num1 = num2 - 24;
+    vis = $(".histrep").slice(num1, num2)
+    $(".histrep").css("visibility", "hidden")
+    $( vis ).css("visibility", "visible")
+})
+$(".pagbase").each(function( index ) {
+  console.log( index + 1);// we have each number here
+  // for each one there are 25 entries
+  // 25 x clicked
+});
+  //okay just do a on select with this logic  google jquery on select
+  // rep.addEventListener('click', popUp, false)
+  // rep1.addEventListener('click', popUp1, false)
+  // function popUp() {
+  //   $(".histrep").css("visibility", "hidden")
+  //   x = $(".histrep").slice(0, 3)
+  //   $( x ).css("visibility", "visible")
+  // }
+  // function popUp1() {
+  //   $(".histrep").css("visibility", "hidden")
+  //   y = $(".histrep").slice(0,10)
+  //   $( y ).css("visibility", "visible")
+  // }
+
+</script>

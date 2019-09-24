@@ -20,7 +20,19 @@
   </div>
 <div class="reflogo"><div class="hattrick"><span class="logo1">Simple</span><span class="logo2">Translate</span></div>
 
-  <span class="logged"><i class="fas fa-user"></i> <%= @using %></span></div>
+  <div class="logged"><i class="fas fa-user"></i> <%= @using %>
+    <div class="usermenu">
+      <ul class="ulpaste">
+        <li><i class="fas fa-user"></i><%= link_to "Profile"%></li>
+        <li><i class="fas fa-home"></i><%= link_to "Home"%></li>
+        <li><i class="fas fa-history"></i><%= link_to "History"%></li>
+        <li><i class="fas fa-heart"></i><%= link_to "Favorites"%></li>
+
+      </ul>
+  </div>
+  </div>
+
+</div>
 
 <div class="topnav">
 <div class="searchcontain">
@@ -28,8 +40,9 @@
   <div class="search-container">
 
     <div class="inputsm"><input type="text" id="inputTxt" placeholder="Search Text Examples...">
-        <button class="refSearch" type='button'><i class="fa fa-search"></i></button>
+       <button class="refSearch" type='button'><i class="fa fa-search"></i></button>
     </div>
+
 
 
   </div>
@@ -37,7 +50,7 @@
   <div class="langselect">
    <form>
      <div class="selectWrap">
-     <select id="oneSelect" name="language">
+     <select id="oneSelect selectbx" name="language">
         <option selected>English</option>
         <option>French</option>
         <option>Spanish</option>
@@ -48,15 +61,15 @@
     </div>
   </form>
   </div>
-  <div class="langselectsw">
+  <div class="sw langselect ">
     <div class="swap">
       <span><img id="swapLang" src="https://img.icons8.com/ultraviolet/40/000000/synchronize.png"></span>
     </div>
   </div>
-  <div class="langselect">
+  <div class="langselect ">
    <form>
      <div class="selectWrap">
-     <select id="twoSelect" name="language">
+     <select id="twoSelect selectbx" name="language">
 
        <option>English</option>
        <option selected>French</option>
@@ -77,26 +90,20 @@
 </div>
 
 <div class="midref">
+
 <div class="refinfo">
+  <div class="refinfowrap">
   <h2 class="lgg">Online translator, flashcards and reference dictionary</h2>
   <br>
-  Collins is a major publisher of Educational, Language and Geographic content,
-  and have been publishing innovative, inspiring and informative books for over
-  <a style="text-decoration:underline;" href="https://www.collinsdictionary.com/about">
-    200 years</a>.
+  Simple Translate is an online resource that was created
+  to facilitate the process of learning a new language. Here you will find reference, a direct translator, and even flashcards to help
+  you improve your vocabulary.
     <br>
     <br>
-  Collins online dictionary and reference resources draw on the wealth of
-  reliable and authoritative information
-  about language, thanks to the extensive use of
-  our <a style="text-decoration:underline;" href="https://www.collinsdictionary.com/cobuild#corpus">corpora</a>
-  - vast databases of language - both in
-  English and in other languages. These databases allow
-  experienced Collins lexicographers to analyse how
-  language is really used, and monitor how language
-  changes around the world. With the benefit of these corpora,
-  our language specialists can be sure that they reflect accurate
-  and authentic language throughout Collins dictionary and reference titles.
+  Simple Translate incorporates the best of API resources from Google Translate, Reverso, and Collins Dictionary
+  to bring you a seemless and connected experience. Here you will find all of the tools you need to help master
+  any language.
+</div>
 </div>
        <div class="refrecent">
        <div class="recentcontain">
@@ -147,14 +154,13 @@
       </ul>
     </div>
     <div class="reffoot2ri">
-      <ul class="footone">
-        <li><h2>Languages</h2></li>
-        <li><%= link_to "English"%></li>
-        <li><%= link_to "French"%></li>
-        <li><%= link_to "Spanish"%></li>
-        <li><%= link_to "German"%></li>
-        <li><%= link_to "Italian"%></li>
-        <li><%= link_to "Portuguese"%></li>
+      <ul class="footfour">
+        <li><h2>Helpful Resources</h2></li>
+        <li><%= link_to "Google Translate"%></li>
+        <li><%= link_to "Reverso Context"%></li>
+        <li><%= link_to "French Stack Exchange"%></li>
+        <li><%= link_to "Collins Dictionary"%></li>
+
       </ul>
     </div>
   </div>
@@ -179,6 +185,25 @@
   const refMenu = document.getElementsByClassName("refmenu")[0];
   const nav = document.getElementsByClassName("sidenav")[0];
   const wrapALL = document.getElementsByClassName("wrapALL")[0];
+  const loggedUser = document.getElementsByClassName("logged")[0];
+  const userMenu = document.getElementsByClassName("usermenu")[0];
+  let toggled = false
+
+
+
+
+   loggedUser.addEventListener('click', showMenu, false)
+   function showMenu() {
+      if (toggled == false) {
+      userMenu.style.display = "block"
+      toggled = true;
+    } else {
+      userMenu.style.display = "none"
+      toggled = false
+    }
+   }
+
+
 
    input.addEventListener("keyup", function(event) {
      if (this.value == '' || this.value == this.defaultValue) {

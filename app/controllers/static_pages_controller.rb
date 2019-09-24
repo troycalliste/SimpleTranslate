@@ -20,6 +20,9 @@ class StaticPagesController < ApplicationController
 
   def history
     @ref = current_user.references
+    @num = current_user.references.count
+    @divnum = (current_user.references.count / 25.0).to_f.ceil
+
   end
   def favorite
     @favorites = current_user.favorites

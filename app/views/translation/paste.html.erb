@@ -1,45 +1,112 @@
-
- <form>
-
-   <select id="oneSelect1" name="language" onchange="selectFilter()">
-      <option selected class="eng">English</option>
-      <option>French</option>
-      <option>Spanish</option>
-      <option>German</option>
-      <option>Arabic</option>
-      <option>Italian</option>
-      <option>Portuguese</option>
-  </select>
-  <div class="swap">
-    <span><img id="swapLang1" src="https://img.icons8.com/ultraviolet/40/000000/synchronize.png"></span>
+<div class="midset">
+  <div class="refnav">
+    <div class="refavail">
+      Voice output available for: <% Language.where(speak: true).each do |lang| %><span class="refspeak refspeakCodes"><%="#{lang.code}" %></span>
+            <% end %>
+    </div>
+    <div class="refmenu"><i class="fas fa-ellipsis-h"></i></div>
   </div>
-   <select id="twoSelect1" name="language">
 
-     <option class="alt">English</option>
-     <option selected class="alt2">French</option>
-     <option class="alt2">Spanish</option>
-     <option class="alt2">German</option>
-     <option class="alt2">Arabic</option>
-     <option class="alt2">Italian</option>
-     <option class="alt2">Portuguese</option>
-  </select>
+
+  <div class="pastelogo"><div class="hattrick"><a href="http://localhost:3000/translation/paste"><span class="plogo1">Simple</span><span class="plogo2">Translate</span></a></div>
+</div>
+
+
+<div class="topset">
+ <h2 class="firsttxt">
+   Vocabulary Tool
+ </h2>
+ <p>This form allows you to paste a set of vocabulary words.
+   We will number the set and find the corresponding definitions for the words
+   in the list. You will also be able to hide/show the definitions to help you in
+  memorizing each one as you go along </p>
+   <h2 class="firsttxt">
+     Paste
+   </h2>
+   <p>Please enter a word set and choose your language below. Each word should be on a seperate line.
+    You can visit <%= link_to "Collins Dictionary", "http://collinsdictionary.com/browse" %> to find
+    a completely dictionary with word sets in alphabetic order.</p>
+
+
+<div class="tst1">
+
+<div class="textareawr">
+  <div class="iconwr" id="pasteBtn"><i class="picon fas fa-paste"></i></div>
+  <textarea class="txtarea" id="pasteTxt" name="name" rows="20" cols="50" ></textarea>
+</div>
+
+
+
+<form class="pasteform">
+  <div class="sctwr">
+  <div class="sct">
+  <select id="oneSelect1" name="language" onchange="selectFilter()">
+     <option selected class="eng">English</option>
+     <option>French</option>
+     <option>Spanish</option>
+     <option>German</option>
+     <option>Arabic</option>
+     <option>Italian</option>
+     <option>Portuguese</option>
+ </select>
+ </div>
+ <div class="sct">
+ <div class="swap">
+   <span class="pastearrow"><i class="arrw fas fa-long-arrow-alt-right"></i></span>
+ </div>
+ </div>
+ <div class="sct">
+  <select id="twoSelect1" name="language">
+    <option class="alt">English</option>
+    <option selected class="alt2">French</option>
+    <option class="alt2">Spanish</option>
+    <option class="alt2">German</option>
+    <option class="alt2">Arabic</option>
+    <option class="alt2">Italian</option>
+    <option class="alt2">Portuguese</option>
+ </select>
+ </div>
+ </div>
 </form>
 
- <div class="pasteBox">
+</div>  <!-- test one -->
+
+<h2 class="firsttxt">
+  Get Definitons
+</h2>
+<p>Please allow a few seconds for definitions to be retrieved</p>
+
+<div class="btnnn" align="center">Submit List</div>
+
+<div class="pastelower">
+</div>
+
+</div>
+<%= render partial: "footer" %>
+</div>
+
+
+
+
+
+
+
+
+ <!-- <div class="pasteBox">
 <button id="pasteBtn">Paste</button>
    <textarea id="pasteTxt" name="name" rows="30" cols="80" ></textarea>
 
 
-     <button class="btnnn">Submit</button>
+     <button class="btnnn">Submit</button> -->
 
 
 
- </div>
- <div class="centerList">
+ <!-- </div> -->
+ <!-- <div class="centerList">
    <div class="colOne">
  </div>
 
- </div>
+ </div> -->
 
 <script>
 $(document).ready(function() {
@@ -172,7 +239,6 @@ function parseTxt() {
   // box2.style.marginTop = "0px"
   console.log(enfrlinks)
   $.ajax({
-
    url: "flash",
    data: { data_value: enfrlinks, arr2: arr2 },
    success: function(response)
@@ -184,8 +250,8 @@ function parseTxt() {
           // newclss = document.getElementsByClassName("topnav")[0].className = "topnav " + str2.toLowerCase();
   // $(".topnav").css("background-size", "2400px 1300px")
   // $(".topnav").css("background-position", " center")
-         $(".pasteBox").empty().append(result)
-         $(".centerList").append(result)
+         $(".topset").empty().append(result)
+         // $(".centerList").append(result)
          }
          const dbtn = document.getElementById("defBtn");
          const wbtn = document.getElementById("wordBtn");
@@ -320,13 +386,7 @@ $(".hoverNotice").css("display","none");
 });
 //well loop through the array , keep making requests and keep appending
 // actually well just send the array to ruby controller and loop it there
-$('#swapLang1').click(function () {
-    let v1 = $('#oneSelect1').val(),
-        v2 = $('#twoSelect1').val();
-    $('#oneSelect1').val(v2);
-    $('#twoSelect1').val(v1);
 
-});
 function selectFilter() {
 // var x = document.getElementById("oneSelect1").value;
 
