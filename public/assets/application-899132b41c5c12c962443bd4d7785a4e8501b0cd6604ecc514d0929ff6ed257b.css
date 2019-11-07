@@ -1,0 +1,2057 @@
+/* line 1, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 33px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 10, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 16, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 22, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 25, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 29, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 35, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+th {
+  padding-bottom: 5px;
+}
+
+/* line 39, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+td {
+  padding: 0 5px 7px;
+}
+
+/* line 44, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 49, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 53, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 59, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 66, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 76, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 82, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/scaffolds.scss */
+label {
+  display: block;
+}
+/* line 4, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+html {
+  background-color: #FFFAF0;
+}
+
+/* line 8, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FFFAF0;
+}
+
+/* line 13, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 16, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.wrapALL {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: #FFFAF0;
+}
+
+/* line 26, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.container {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin: auto;
+  position: absolute;
+  overflow: hidden;
+  background-color: #FFFAF0;
+}
+
+/* line 36, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.sidenav {
+  height: 100%;
+  width: 0px;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.2s;
+  background-color: #EFF5F7;
+}
+
+/* line 50, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.sidenav a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* line 58, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.sidenav a:hover {
+  color: #f1f1f1;
+  background-color: transparent;
+}
+
+/* line 62, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.navW {
+  margin-top: -30px;
+}
+
+/* line 66, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.navImg img {
+  margin-top: -40px;
+  margin-left: 20px;
+  height: 150px;
+}
+
+/* line 72, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.tlink {
+  padding: 8px 8px 15px 62px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid white;
+  width: 250px;
+}
+
+/* line 78, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.rlink {
+  padding: 8px 8px 15px 62px;
+  padding-top: 25px;
+  width: 250px;
+}
+
+/* line 83, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.alink {
+  padding: 8px 8px 15px 62px;
+  width: 250px;
+}
+
+/* line 89, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.navImg2 img {
+  margin-top: -92px;
+  margin-left: 50px;
+  height: 150px;
+}
+
+/* line 96, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.nbar {
+  height: 60px;
+  width: 100%;
+  background-color: gray;
+  position: absolute;
+  top: 0;
+}
+
+/* line 105, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.fondIcn {
+  overflow-x: auto;
+  width: 20px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 5px;
+  margin-top: 7px;
+}
+
+/* line 117, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.fondIcn:hover {
+  background: red;
+}
+
+/* line 121, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.bpmw {
+  display: none;
+}
+
+/* line 124, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refnav {
+  height: 40px;
+  width: 100%;
+  background: #0063D4;
+  position: relative;
+  left: -50%;
+  overflow: auto;
+  height: 50px;
+  border-radius: 2px;
+}
+
+/* line 134, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.hrefnav {
+  height: 40px;
+  width: 100vw;
+  background: #0063D4;
+  position: relative;
+  overflow: auto;
+  height: 50px;
+  border-radius: 2px;
+}
+
+/* line 144, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.reflogo {
+  height: 50px;
+  width: 100%;
+  position: relative;
+  left: -50%;
+}
+
+/* line 153, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refmenu {
+  top: 0;
+  float: right;
+  background: red;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  overflow: auto;
+  font-size: 17px;
+  text-align: center;
+  margin-right: 8px;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+/* line 169, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refmenu {
+  top: 0;
+  float: right;
+  background: red;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  overflow: auto;
+  font-size: 17px;
+  text-align: center;
+  margin-right: 8px;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+/* line 185, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.inputsm {
+  position: relative;
+  display: flex;
+  background-color: white;
+  overflow: auto;
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 28px;
+  background: red;
+  height: 40px;
+}
+
+/* line 196, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refSearch {
+  position: relative;
+  width: 10%;
+  display: inline-block;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+/* line 212, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.langwrap {
+  margin-top: 5px;
+  margin-left: 70px;
+  position: relative;
+  overflow: auto;
+  display: inline-block;
+}
+
+/* line 220, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refmenu:hover {
+  cursor: pointer;
+}
+
+/* line 223, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refmenu i {
+  color: white;
+}
+
+/* line 227, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refavail {
+  color: white;
+  width: 80%;
+  position: relative;
+  display: inline-block;
+  line-height: 50px;
+}
+
+/* line 236, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.lownav {
+  margin-top: 0;
+  top: 0;
+  height: 450px;
+  width: 1100px;
+  position: absolute;
+  left: 50%;
+}
+
+/* line 247, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.topnav {
+  height: 150px;
+  width: 100%;
+  position: relative;
+  left: -50%;
+  background-color: #EFF5F7;
+  border-radius: 5px;
+}
+
+/* line 263, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.topnav::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 300px;
+  z-index: -1;
+  opacity: 0.7;
+  background-image: url("text.jpg");
+  background-position: 0 60%;
+  background-size: 100%;
+}
+
+/* line 287, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.topnav.french::after {
+  background-image: url("paris.jpg");
+}
+
+/* line 290, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.topnav.spanish::after {
+  background-image: url("spain.jpg");
+}
+
+/* line 293, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.topnav.dutch::after {
+  background-repeat: no-repeat;
+  background-image: url("netherlands.jpg");
+  background-position: 0 80%;
+  background-size: 2300px 1100px;
+}
+
+/* line 299, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.topnav.arabic::after {
+  background-image: url("dubai.jpg");
+}
+
+/* line 302, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.topnav.italian::after {
+  background-image: url("venice.jpg");
+}
+
+/* line 305, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.topnav.russian::after {
+  background-image: url("russia.jpg");
+}
+
+/* line 311, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refSearch:hover {
+  background: #ccc;
+}
+
+/* line 314, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.search-container {
+  float: left;
+  z-index: 2;
+  margin-left: 10px;
+  width: 55%;
+}
+
+/* line 321, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.langselect {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+/* line 335, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.topnav .langselect select {
+  float: left;
+  padding: 6px 6px;
+  font-size: 17px;
+  width: 150px;
+  border: none;
+}
+
+/* line 343, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+select:focus {
+  border: none;
+  outline: none;
+}
+
+/* line 348, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.topnav .langselect .swap {
+  padding-top: 2px;
+  width: 30px;
+  text-align: center;
+}
+
+/* line 355, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.searchcontain {
+  overflow: auto;
+  width: 100%;
+}
+
+/* line 361, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.searchwrap {
+  overflow-x: auto;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+/* line 372, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.selectWrap {
+  margin-top: 5px;
+  border-radius: 2px;
+  display: inline-block;
+  overflow: hidden;
+  background: white;
+  padding: 4px;
+}
+
+/* line 381, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.logged {
+  position: relative;
+  float: right;
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 30px;
+  z-index: 9999999;
+}
+
+/* line 392, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.usermenu {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  display: none;
+  overflow-y: auto;
+}
+
+/* line 401, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.ulpaste {
+  position: relative;
+  margin-top: 0px;
+  padding: 0;
+  z-index: 99999999;
+}
+
+/* line 407, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.ulpaste li {
+  background: lightblue;
+  padding: 7px 0px;
+  z-index: 99999999;
+}
+
+/* line 416, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.ulpaste li:not(:first-child) {
+  border-top: 1px solid blue;
+}
+
+/* line 419, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.midref {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  left: -50%;
+  margin-top: 20px;
+}
+
+/* line 427, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refinfo {
+  width: 57%;
+  height: 250px;
+  position: relative;
+  display: inline-block;
+  background-color: white;
+  left: 0;
+  border: 1px solid lightblue;
+}
+
+/* line 436, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refinfowrap {
+  width: 90%;
+  margin-left: 10px;
+  position: relative;
+  text-align: left;
+}
+
+/* line 443, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refrecent {
+  width: 38%;
+  height: 250px;
+  position: relative;
+  display: inline-bloc;
+  float: right;
+  background-color: white;
+  vertical-align: center;
+  border: 1px solid lightblue;
+}
+
+/* line 454, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.recentcontain {
+  width: 90%;
+  height: 90%;
+  margin: 2.5% auto;
+  background-color: white;
+  display: block;
+  position: relative;
+}
+
+/* line 462, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refeach {
+  background-color: white;
+  position: relative;
+  width: 100%;
+  height: 15%;
+  line-height: 24px;
+}
+
+/* line 469, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refeach:nth-child(odd) {
+  background: lightblue;
+}
+
+/* line 472, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.recenteach {
+  text-decoration: none;
+  color: white;
+}
+
+/* line 476, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.recenteach:hover {
+  background-color: transparent;
+}
+
+/* line 481, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.reffooter {
+  display: flex;
+  position: relative;
+  width: 100%;
+  left: -50%;
+  top: 90%;
+  height: 250px;
+  transform: translateY(-100%);
+}
+
+/* line 492, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.reffoot1 {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+
+/* line 501, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.reffoot1le {
+  width: 50%;
+  height: 100%;
+  background-color: #EFF5F7;
+}
+
+/* line 510, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.reffoot1ri {
+  width: 50%;
+  height: 100%;
+  background-color: #EFF5F7;
+}
+
+/* line 524, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.reffoot2 {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+
+/* line 533, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.reffoot2le {
+  width: 50%;
+  height: 100%;
+  background-color: #EFF5F7;
+}
+
+/* line 542, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.reffoot2ri {
+  width: 50%;
+  height: 100%;
+  background-color: #EFF5F7;
+}
+
+/* line 551, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 554, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.footone li, .foottwo li,
+.footthree li,
+.footfour li {
+  padding-bottom: 10px;
+  color: black;
+}
+
+/* line 560, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.footone a {
+  color: black;
+}
+
+/* line 563, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+ul a:hover {
+  background-color: transparent;
+}
+
+/* line 566, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+ul h2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* line 569, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.histnv {
+  left: 50%;
+  width: 800px;
+  position: absolute;
+}
+
+/* line 575, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.hist {
+  overflow: auto;
+  left: -50%;
+  width: 800px;
+  position: relative;
+}
+
+/* line 581, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.histmain {
+  font-size: 16px;
+  color: green;
+  line-height: 33px;
+  padding: 0px 3px;
+}
+
+/* line 587, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.histrep {
+  display: none;
+  overflow: auto;
+}
+
+/* line 593, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.histrep:nth-child(even) {
+  background-color: lightblue;
+}
+
+/* line 596, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.histwrap {
+  display: flex;
+  overflow: auto;
+  width: 90%;
+  vertical-align: middle;
+}
+
+/* line 602, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.histsmalldefs {
+  display: inline-block;
+  float: left;
+  margin-top: 7px;
+  padding: 0px 7px;
+  height: 20px;
+}
+
+/* line 611, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.histsmalldate {
+  display: inline-block;
+  float: right;
+  margin-top: 7px;
+}
+
+/* line 616, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.histsmallarrw {
+  display: inline-block;
+  float: left;
+  margin-top: 3px;
+  padding: 7px;
+}
+
+/* line 623, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.histsmalldefs:not(:last-child) {
+  border-right: 2px solid gray;
+}
+
+/* line 626, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.pag {
+  display: flex;
+}
+
+/* line 629, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.pagbase {
+  padding: 3px 8px;
+  border: 1px solid #FFFAF0;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* line 635, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.showing {
+  display: flex;
+}
+
+/* line 638, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.rescount {
+  padding: 0px 5px;
+}
+
+/* line 646, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.homeContent {
+  display: none;
+  width: 39vw;
+  min-width: 650px;
+  max-width: 750px;
+  overflow-y: auto;
+  margin: 100px  auto;
+}
+
+/* line 657, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.homeContentref {
+  display: none;
+  width: 800px;
+  left: -50%;
+  position: relative;
+  overflow-y: auto;
+  margin: 100px auto;
+}
+
+/* line 669, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.wrp {
+  overflow: hidden;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 80vw;
+  height: 250px;
+  margin-left: -40vw;
+  border-radius: 10px;
+  background-color: purple;
+}
+
+/* line 683, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.wrapList {
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+  width: 1000px;
+  top: -152px;
+  display: none;
+  text-align: center;
+}
+
+/* line 718, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.row {
+  font-size: 10px;
+  float: left;
+  padding: 7px 9px;
+  width: 9vw;
+  background: white;
+  text-align: left;
+}
+
+/* line 735, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.lwab {
+  overflow: auto;
+}
+
+/* line 738, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.tlwrap {
+  position: absolute;
+  min-height: auto;
+  width: 1000px;
+  top: 200px;
+  left: 50%;
+  padding-top: 48px;
+}
+
+/* line 750, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.translateContent {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  left: -50%;
+  border-radius: 10px;
+}
+
+/* line 768, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.overflownc {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+/* line 776, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.fill {
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: -1;
+}
+
+/* line 782, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.tlbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  background: orange;
+  z-index: 0;
+}
+
+/* line 793, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.first {
+  background: red;
+  height: 100%;
+  width: 50%;
+  float: left;
+}
+
+/* line 802, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.detected {
+  position: relative;
+  overflow: auto;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* line 816, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.dtc {
+  border-right: 2px solid white;
+  overflow: auto;
+  display: inline-block;
+  background: purple;
+  padding-right: 10px;
+}
+
+/* line 823, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.second {
+  background: lightblue;
+  height: 100%;
+  width: 50%;
+  float: left;
+  line-height: 48px;
+  font-weight: lighter;
+}
+
+/* line 832, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+#slctLang {
+  display: inline-block;
+  font-weight: bold;
+  z-index: 999999999;
+}
+
+/* line 839, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+#slctLang:hover {
+  cursor: pointer;
+}
+
+/* line 844, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.textboxwrap {
+  top: 48px;
+  position: absolute;
+  left: 0;
+  z-index: 0;
+  height: 50%;
+  width: 50%;
+}
+
+/* line 853, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+#translateBox {
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+/* line 859, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.voiceOut {
+  font-size: 10px;
+  color: gray;
+}
+
+/* line 863, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.resultContent {
+  top: 48px;
+  position: absolute;
+  background: white;
+  right: 0;
+  z-index: 0;
+  height: 152px;
+  width: 50%;
+  border-left: 1px solid lightgray;
+}
+
+/* line 873, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.resultText {
+  font-size: 16px;
+}
+
+/* line 878, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.speakCodes {
+  border-right: 1px solid black;
+  padding-right: 7px;
+  padding-left: 7px;
+}
+
+/* line 883, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.speakCodes:last-child {
+  border-right: none;
+}
+
+/* line 886, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refspeakCodes {
+  border-right: 1px solid white;
+  padding-right: 7px;
+  padding-left: 7px;
+}
+
+/* line 891, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.refspeakCodes:last-child {
+  border-right: none;
+}
+
+/* line 894, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.logo1 {
+  font-weight: bold;
+  font-size: 30px;
+  font-style: italic;
+  color: black;
+}
+
+/* line 900, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.logo2 {
+  font-weight: bold;
+  font-size: 30px;
+  font-style: italic;
+  color: #0063D4;
+}
+
+/* line 906, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.hattrick {
+  display: inline-block;
+  width: 300px;
+  height: 60px;
+  position: relative;
+  margin-left: 20px;
+  line-height: 50px;
+}
+
+/* line 921, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.highlight {
+  background: yellow;
+}
+
+/* line 924, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.results {
+  width: 50%;
+  float: left;
+  margin-top: 0;
+  padding-bottom: 14px;
+  padding-top: 8px;
+}
+
+/* line 932, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.results img {
+  width: 20px;
+  height: 20px;
+  padding-top: 10px;
+}
+
+/* line 938, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.flresults {
+  width: 50%;
+  float: left;
+  margin-top: 0;
+  padding-bottom: 14px;
+  padding-top: 8px;
+}
+
+/* line 948, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.flresults img {
+  width: 20px;
+  height: 20px;
+  padding-top: 10px;
+}
+
+/* line 954, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.stuff {
+  visibility: hidden;
+}
+
+/* line 957, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.resultborder {
+  border-bottom: 1px dashed red;
+  position: relative;
+  overflow: auto;
+}
+
+/* line 963, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.heart {
+  padding: 10px;
+}
+
+/* line 971, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.resultcut {
+  width: 90%;
+}
+
+/* line 975, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.mute {
+  display: none;
+}
+
+/* line 978, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+#inputTxt {
+  font-size: 17px;
+  border: none;
+  z-index: 1;
+  width: 100%;
+}
+
+/* line 997, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+em {
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+/* line 1000, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.myarr {
+  margin: 0 auto;
+  color: red;
+  border-radius: 4px;
+  border: 1px solid red;
+  padding: 10px;
+  background: pink;
+  display: inline-block;
+}
+
+/* line 1011, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.innerList {
+  padding: 2px 7px;
+  display: inline-block;
+  overflow: auto;
+}
+
+/* line 1018, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+.wordList {
+  display: none;
+  width: 39vw;
+  min-width: 650px;
+  max-width: 750px;
+  margin: 0 auto;
+  overflow: auto;
+  text-align: left;
+  position: relative;
+  left: -50%;
+  background: blue;
+}
+
+/* line 1031, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+#swapLang:hover {
+  transform: rotate(-100deg);
+}
+
+/* line 1034, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+#swapLang {
+  height: 32px;
+  width: 32px;
+  text-align: center;
+  transition: transform 0.4s;
+}
+
+@media screen and (max-width: 900px) {
+  /* line 1045, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .tlwrap {
+    width: 100vw;
+    left: 0;
+    margin-left: 0;
+  }
+
+  /* line 1051, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .wrapList {
+    width: 100vw;
+  }
+
+  /* line 1054, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .row {
+    margin-right: 100px;
+  }
+
+  /* line 1057, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .translateContent {
+    left: 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  /* line 1065, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .tlwrap {
+    width: 100vw;
+    left: 0;
+    margin-left: 0;
+  }
+
+  /* line 1071, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .translateContent {
+    left: 0;
+  }
+
+  /* line 1078, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .textboxwrap {
+    width: 100%;
+  }
+
+  /* line 1083, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .resultContent {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    top: 146px;
+    position: absolute;
+    background: #D3EBF4;
+    left: 0;
+    z-index: 0;
+    height: 152px;
+    width: 100%;
+  }
+
+  /* line 1094, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .tlbar {
+    height: 30px;
+  }
+
+  /* line 1097, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .detected {
+    height: 30px;
+    font-size: 13px;
+    width: 100%;
+  }
+
+  /* line 1104, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .second {
+    font-size: 13px;
+    line-height: 30px;
+  }
+
+  /* line 1110, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .textboxwrap {
+    top: 30px;
+  }
+
+  /* line 1113, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .voiceOut {
+    display: none;
+  }
+
+  /* line 1116, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .overflownc {
+    overflow: visible;
+    border: none;
+    border-radius: 0;
+  }
+}
+@media screen and (max-width: 660px) {
+  /* line 1125, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .homeContent {
+    min-width: 100vw;
+  }
+
+  /* line 1128, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .flresults {
+    margin-left: 6px;
+    float: none;
+    width: 80%;
+  }
+
+  /* line 1133, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .results {
+    margin-left: 6px;
+    float: none;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 1080px) {
+  /* line 1142, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .lownav {
+    width: 100vw;
+    left: 0;
+  }
+
+  /* line 1146, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .topnav {
+    width: 100vw;
+    left: 0;
+  }
+
+  /* line 1150, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .refnav {
+    left: 0;
+  }
+
+  /* line 1153, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .reflogo {
+    left: 0;
+  }
+
+  /* line 1156, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .midref {
+    left: 0;
+  }
+
+  /* line 1159, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .reffooter {
+    left: 0;
+  }
+
+  /* line 1163, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .inputsm {
+    margin: 0 auto;
+    width: 100%;
+    height: 40px;
+  }
+
+  /* line 1170, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .search-container {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* line 1176, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .searchcontain {
+    position: relative;
+    margin: 0 auto;
+    width: 90%;
+    top: 25px;
+  }
+
+  /* line 1184, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .refsearch {
+    right: 0;
+    width: 7%;
+  }
+
+  /* line 1190, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  #inputTxt {
+    width: 100%;
+  }
+
+  /* line 1193, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .selectWrap {
+    width: 100%;
+  }
+
+  /* line 1197, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .selectbx {
+    width: 1000px;
+  }
+
+  /* line 1200, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .langwrap {
+    margin-left: 0;
+    top: -5px;
+    width: 100%;
+    display: flex;
+  }
+
+  /* line 1206, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .langselect {
+    margin-left: 0;
+    width: 33%;
+    overflow: hidden;
+  }
+
+  /* line 1213, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .swap {
+    margin: 0 auto;
+  }
+
+  /* line 1216, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .topnav .langselect select {
+    float: left;
+    padding: 6px 6px;
+    font-size: 17px;
+    width: 100%;
+    border: none;
+  }
+
+  /* line 1223, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .homeContentref {
+    left: 0%;
+  }
+
+  /* line 1226, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .wordList {
+    left: 0%;
+  }
+
+  /* line 1229, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .histnv {
+    left: 0;
+    width: 100vw;
+  }
+
+  /* line 1233, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .hist {
+    left: 0;
+    width: 100vw;
+  }
+}
+@media screen and (max-width: 900px) {
+  /* line 1240, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .refinfo {
+    width: 90%;
+    position: relative;
+    display: block;
+    margin: auto;
+    overflow-y: auto;
+    margin-bottom: 30px;
+  }
+
+  /* line 1248, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .refinfowrap {
+    padding-top: 10px;
+  }
+
+  /* line 1251, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .midref {
+    margin-top: 20px;
+  }
+
+  /* line 1254, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .refrecent {
+    width: 90%;
+    margin-top: 200px;
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    float: none;
+    vertical-align: middle;
+  }
+
+  /* line 1268, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .recentcontain {
+    margin: 0%;
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  /* line 1278, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .reffooter {
+    display: block;
+    left: 0%;
+  }
+
+  /* line 1282, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .reffoot1 {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+
+  /* line 1292, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .reffoot2 {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  /* line 1299, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .reffooter {
+    top: 150%;
+  }
+
+  /* line 1304, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .reffoot1le {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid gray;
+  }
+
+  /* line 1311, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .reffoot1ri {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid gray;
+  }
+
+  /* line 1320, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .reffoot2le {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    margin-top: 30px;
+  }
+
+  /* line 1329, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .reffoot2ri {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* line 1335, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/static_pages.scss */
+  .footone li, .foottwo li,
+  .footthree li,
+  .footfour li {
+    margin-left: -70px;
+  }
+}
+/* line 4, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.midset {
+  margin-top: 0;
+  top: 0;
+  height: 450px;
+  width: 800px;
+  position: absolute;
+  left: 50%;
+}
+
+/* line 14, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.topset {
+  left: -50%;
+  width: 800px;
+  display: block;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* line 23, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.pastelogo {
+  height: 50px;
+  width: 100%;
+  position: relative;
+  height: 100px;
+  left: -50%;
+  border-bottom: 1px solid blue;
+}
+
+/* line 33, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.plogo1 {
+  font-weight: bold;
+  font-size: 35px;
+  font-style: italic;
+  color: black;
+  line-height: 100px;
+}
+
+/* line 40, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.plogo2 {
+  font-weight: bold;
+  font-size: 35px;
+  font-style: italic;
+  color: blue;
+  line-height: 100px;
+}
+
+/* line 47, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.firsttxt {
+  margin-top: 30px;
+  color: lightgreen;
+}
+
+/* line 51, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.textareawr {
+  position: relative;
+  overflow: auto;
+  background: white;
+  width: 430px;
+  display: inline-block;
+}
+
+/* line 59, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.picon {
+  margin-top: 7px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* line 65, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.iconwr {
+  overflow: auto;
+  background-color: white;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+/* line 74, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.iconwr:hover {
+  border: 1px solid gray;
+}
+
+/* line 77, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+#pasteTxt {
+  margin-left: 30px;
+  border: none;
+}
+
+/* line 81, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+#pasteTxt:focus {
+  outline: 0px !important;
+}
+
+/* line 84, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.pasteBox {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 200px;
+  width: 80vw;
+  background: red;
+  padding: 0;
+  position: relative;
+}
+
+/* line 94, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.btnnn {
+  border: none;
+  background: #404040;
+  color: #ffffff !important;
+  font-weight: 100;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
+/* line 107, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.btnnn:hover {
+  color: #404040 !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px;
+  background: none;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+
+/* line 117, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.centerList {
+  margin: auto;
+  overflow: auto;
+  text-align: center;
+  background-color: orange;
+  width: 62vw;
+  text-align: left;
+}
+
+/* line 127, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.sctwr {
+  display: flex;
+  width: 300px;
+}
+
+/* line 131, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.pasteform {
+  margin-left: 30px;
+  width: 250px;
+}
+
+/* line 136, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.tst1 {
+  display: flex;
+}
+
+/* line 139, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.pastearrow {
+  width: 40px;
+  text-align: center;
+}
+
+/* line 144, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.arrw {
+  font-size: 20px;
+}
+
+/* line 147, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.pastewrp {
+  display: flex;
+}
+
+/* line 150, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.sct select {
+  display: block;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: .6em 1.4em .5em .8em;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  border-radius: .5em;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right .7em top 50%, 0 0;
+  background-size: .65em auto, 100%;
+}
+
+/* line 176, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.sct select::-ms-expand {
+  display: none;
+}
+
+/* line 179, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.sct select:hover {
+  border-color: #888;
+}
+
+/* line 182, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.sct select:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+
+/* line 189, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.sct select option {
+  font-weight: normal;
+}
+
+/* line 192, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.pastelower {
+  margin-top: 20px;
+  border-top: 1px solid blue;
+  width: 800px;
+  height: 90px;
+  position: relative;
+  display: block;
+}
+
+/* line 201, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.pastefooter {
+  display: flex;
+  position: relative;
+  width: 100%;
+  left: -50%;
+  top: 90%;
+  height: 250px;
+  background-color: gray;
+  transform: translateY(-100%);
+}
+
+/* line 211, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.pastefoot1 {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+
+/* line 220, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.pastefoot1le {
+  width: 50%;
+  height: 100%;
+  background-color: #B9BDC1;
+}
+
+/* line 229, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.pastefoot1ri {
+  width: 50%;
+  height: 100%;
+  background-color: #B9BDC1;
+}
+
+/* line 243, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.pastefoot2 {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+
+/* line 252, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.pastefoot2le {
+  width: 50%;
+  position: relative;
+  height: 100%;
+  background-color: #B9BDC1;
+}
+
+/* line 262, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.pastefoot2ri {
+  width: 50%;
+  height: 100%;
+  background-color: #B9BDC1;
+}
+
+/* line 271, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.hattrick a:hover {
+  background-color: transparent;
+}
+
+/* line 278, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.colOne {
+  width: 30vw;
+  position: relative;
+  background: blue;
+  margin: 0 auto;
+  text-align: left;
+  display: inline-block;
+  z-index: 2;
+}
+
+/* line 288, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.refmenu1 {
+  top: 0;
+  float: right;
+  background: red;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  overflow: auto;
+  font-size: 17px;
+  text-align: center;
+  margin-right: 8px;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+/* line 304, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.refmenu1:hover {
+  cursor: pointer;
+}
+
+/* line 307, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.refmenu1 i {
+  color: white;
+}
+
+/* line 325, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.word .sp {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+/* line 339, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.defn .sp {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+/* line 390, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.flip-container {
+  perspective: 1000px;
+  position: absolute;
+  left: 45%;
+  margin-left: -250px;
+  top: 50%;
+}
+
+/* flip the pane when hovered */
+/* line 402, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.flip-container {
+  width: 620px;
+  height: 580px;
+}
+
+/* flip speed goes here */
+/* line 408, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.flipper {
+  transition: 0.3s;
+  transform-style: preserve-3d;
+  transform-origin: 100% 150px;
+  /* half of height */
+  position: relative;
+}
+
+/* hide back of pane during swap */
+/* line 423, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.swap {
+  margin-top: 10px;
+  padding: 0px 10px;
+}
+
+/* line 429, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.smallcard {
+  position: absolute;
+  background-color: orange;
+  background-size: 100%;
+  height: 100px;
+  width: 200px;
+  left: 135%;
+  margin-left: -250px;
+  top: 160%;
+  z-index: 3;
+  transform: rotateX(0deg);
+}
+
+/* line 442, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.smallcard2 {
+  position: absolute;
+  background-image: url("index_card.png");
+  background-size: 200px 100px;
+  height: 100px;
+  width: 200px;
+  left: 135%;
+  margin-left: -250px;
+  top: 160%;
+  z-index: 2;
+  transform: rotateX(0deg);
+}
+
+/* line 458, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.flashcardInputWrap {
+  margin: 0 auto;
+  margin-top: 1000px;
+  width: 50vw;
+  background: orange;
+}
+
+/* line 464, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.flashcardForm {
+  float: right;
+}
+
+/* line 474, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.outer {
+  perspective: 1000px;
+  position: absolute;
+  left: 45%;
+  margin-left: -250px;
+  top: 50%;
+  width: 500px;
+  height: 300px;
+}
+
+/* line 483, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.outer div {
+  transition: all .6s;
+}
+
+/* line 489, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.front {
+  position: absolute;
+  z-index: 999;
+  background-image: url("index_card.png");
+  background-size: 100%;
+  height: 300px;
+  width: 500px;
+  left: 0;
+  top: 0;
+}
+
+/* line 500, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+.back {
+  position: absolute;
+  z-index: -999;
+  background-color: orange;
+  background-size: 100%;
+  height: 300px;
+  width: 500px;
+  left: 0;
+  top: 0;
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+@media screen and (max-width: 1080px) {
+  /* line 525, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+  .midset {
+    width: 100vw;
+    left: 0;
+  }
+
+  /* line 529, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+  .topset {
+    left: 0;
+    width: 100vw;
+  }
+
+  /* line 533, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+  .pastelogo {
+    left: 0;
+  }
+
+  /* line 536, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+  .tst1 {
+    display: block;
+  }
+
+  /* line 539, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+  .pastefooter {
+    display: block;
+    left: 0%;
+  }
+
+  /* line 543, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+  .pastelower {
+    width: 100vw;
+  }
+
+  /* line 546, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+  .pastefoot1 {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    background-color: pink;
+  }
+
+  /* line 556, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+  .pastefoot2 {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  /* line 564, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+  .pastefoot1le {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid gray;
+  }
+
+  /* line 571, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+  .pastefoot1ri {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid gray;
+  }
+
+  /* line 580, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+  .pastefoot2le {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    margin-top: 30px;
+  }
+
+  /* line 590, /mnt/c/code/SimpleTranslate/app/assets/stylesheets/translation.scss */
+  .pastefoot2ri {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
