@@ -12,7 +12,13 @@
 
 
 
-
+<div class="hrefnav">
+<div class="refavail">
+    Voice output available for: <% Language.where(speak: true).each do |lang| %><span class="refspeak refspeakCodes"><%="#{lang.code}" %></span>
+          <% end %>
+</div>
+<div class="refmenu"><i class="fas fa-ellipsis-h"></i></div>
+</div>
 
 
 
@@ -64,12 +70,10 @@
     </div>
   </div>
 </div>
-<div class="voiceOut">Voice output available for: <% Language.where(speak: true).each do |lang| %><span class="speakCodes"><%="#{lang.code}" %></span>
-      <% end %>
-</div>
+
 
 <!-- </div> -->
-<% if signed_in? %>
+<% if current_user %>
   <div class="bpmw"><%= current_user.email %>
      <% current_user.attributes.each do |k, v| %>
       <b><%= k %>:</b> <%= v %> <br>

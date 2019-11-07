@@ -13,6 +13,9 @@ class TranslationController < ApplicationController
     # render template: 'static_pages/flash'
   end
   def paste
+    if current_user
+      @using =  current_user.email
+    end
   end
   def flash
      @enfrlink = params[:data_value]

@@ -13,19 +13,29 @@ class StaticPagesController < ApplicationController
   def reference
     if current_user
       @using = current_user.email
+      @user = current_user
     else
       @using = "Log in  |  Sign up"
     end
   end
 
   def history
-    @ref = current_user.references
+    @ref = current_user.references.order('created_at DESC')
     @num = current_user.references.count
     @divnum = (current_user.references.count / 25.0).to_f.ceil
+    @using =  current_user.email
+
+
 
   end
   def favorite
     @favorites = current_user.favorites
+
+    @ref = current_user.favorites.order('created_at DESC')
+    @num = current_user.favorites.count
+    @divnum = (current_user.favorites.count / 25.0).to_f.ceil
+    @using =  current_user.email
+    render :template => 'static_pages/history'
   end
 
   def flash

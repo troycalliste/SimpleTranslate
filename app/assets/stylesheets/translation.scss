@@ -285,6 +285,29 @@ cursor: pointer;
    display: inline-block;
    z-index: 2;
 }
+.refmenu1 {
+  top: 0;
+  // position: relative;
+  float: right;
+  background: red;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  overflow: auto;
+  font-size: 17px;
+  text-align: center;
+  margin-right: 8px;
+  margin-top: 10px;
+  // z-index: 1;
+  border-radius: 3px;
+}
+.refmenu1:hover{
+ cursor: pointer;
+}
+.refmenu1 i{
+
+  color: white;
+}
 // .colTwo {
 //    height: 80vh;
 //    width: 30vw;

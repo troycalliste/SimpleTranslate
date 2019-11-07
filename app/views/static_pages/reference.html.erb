@@ -8,6 +8,9 @@
    <a class="alink" href="#">Flashcards</a>
   </div>
 </div>
+<div class="wrapALL">
+
+
 
 
 <div class="lownav">
@@ -18,18 +21,25 @@
     </div>
     <div class="refmenu"><i class="fas fa-ellipsis-h"></i></div>
   </div>
-<div class="reflogo"><div class="hattrick"><span class="logo1">Simple</span><span class="logo2">Translate</span></div>
+<div class="reflogo"><div class="hattrick"><a href="http://localhost:3000/static_pages/reference"><span class="logo1">Simple</span><span class="logo2">Translate</span></a></div>
 
-  <div class="logged"><i class="fas fa-user"></i> <%= @using %>
-    <div class="usermenu">
-      <ul class="ulpaste">
-        <li><i class="fas fa-user"></i><%= link_to "Profile"%></li>
-        <li><i class="fas fa-home"></i><%= link_to "Home"%></li>
-        <li><i class="fas fa-history"></i><%= link_to "History"%></li>
-        <li><i class="fas fa-heart"></i><%= link_to "Favorites"%></li>
+  <div class="logged">
+     <% if current_user %>
+        <i class="fas fa-user"></i> <%= @using %>
+        <div class="usermenu">
+        <ul class="ulpaste">
+          <li><i class="fas fa-user"></i><%= link_to "Profile"%></li>
+          <li><i class="fas fa-home"></i><%= link_to "Home"%></li>
+          <li><i class="fas fa-history"></i><%= link_to "History"%></li>
+          <li><i class="fas fa-heart"></i><%= link_to "Favorites"%></li>
+          <li><i class="fas fa-heart"></i><%= link_to "Sign out", sessions_path %></li>
 
-      </ul>
-  </div>
+        </ul>
+       </div>
+     <% else %>
+     <%= link_to "Login With Google", login_path %>
+     <%= current_user %>
+     <% end %>
   </div>
 
 </div>
@@ -50,7 +60,7 @@
   <div class="langselect">
    <form>
      <div class="selectWrap">
-     <select id="oneSelect selectbx" name="language">
+     <select id="oneSelectref" name="language">
         <option selected>English</option>
         <option>French</option>
         <option>Spanish</option>
@@ -69,7 +79,7 @@
   <div class="langselect ">
    <form>
      <div class="selectWrap">
-     <select id="twoSelect selectbx" name="language">
+     <select id="twoSelectref" name="language">
 
        <option>English</option>
        <option selected>French</option>
@@ -88,7 +98,10 @@
   </div>
 </div>
 </div>
-
+<div class="wordList">
+</div>
+<div class="homeContentref">
+</div>
 <div class="midref">
 
 <div class="refinfo">
@@ -107,10 +120,13 @@
 </div>
        <div class="refrecent">
        <div class="recentcontain">
+         <% if current_user %>
          <% current_user.references.last(3).each do |r| %>
+
           <div class="refeach"><%= link_to r.name, users_path, class: "recenteach" %>
 
           </div>
+         <% end %>
          <% end %>
 
        </div>
@@ -160,23 +176,19 @@
         <li><%= link_to "Reverso Context"%></li>
         <li><%= link_to "French Stack Exchange"%></li>
         <li><%= link_to "Collins Dictionary"%></li>
-
       </ul>
     </div>
   </div>
 </div>
 
+
 </div>      <!-- lownav  -->
 
 
 
-<div class="wordList">
-</div>
 
-<div class="homeContent">
-</div>
 
-<!-- </div> -->
+</div>
 <script>
   const input = document.getElementById("inputTxt");
   const refSearch = document.getElementsByClassName("refSearch")[0];
@@ -219,10 +231,12 @@
      }
      event.preventDefault()
      const inputTxt = document.getElementById("inputTxt").value;
-     const refContain = document.getElementsByClassName("homeContent")[0];
+     const refContain = document.getElementsByClassName("homeContentref")[0];
      const tlContain = document.getElementsByClassName("translateContent")[0];
      const wrdList = document.getElementsByClassName("wordList")[0];
      const parsedTxt = inputTxt.replace(/\s+/g, '+');
+     const oneSelect = document.getElementById("oneSelectref")
+     const twoSelect = document.getElementById("twoSelectref")
      const str = oneSelect.options[oneSelect.selectedIndex].text;
      const str2 = twoSelect.options[twoSelect.selectedIndex].text;
      const reverso = "https://context.reverso.net/translation/";
@@ -244,9 +258,9 @@
         data: { data_value: translateUrl, searchText: inputTxt },
         success: function(response)
            {
-             result = $(response).find(".myurl");
+             result = $(response).find(".resultborder");
              result2 = $(response).find(".innerList");
-             refContain.style.display = "block";
+
              // tlContain.style.display = "none";
              newclss = document.getElementsByClassName("topnav")[0].className = "topnav " + str2.toLowerCase();
              function uniqArr(value, index, self) {
@@ -255,12 +269,25 @@
              // $(".topnav").css("background-size", "2400px 1300px")
              // $(".topnav").css("background-position", " center")
             wrdList.style.display = "block";
-            $(".homeContent").empty().append(result)
+            refContain.style.display = "block";
+
+            // $(".midref").empty()
+            console.log(translateUrl)
+            console.log(inputTxt)
+            $(".midref").empty()
             $(".wordList").empty().append(result2)
+            $(".homeContentref").empty().append(result)
+
+
             let french = document.getElementsByClassName("myarr")[0].innerText;
             const frencharr = french.replace(/[\[\]']/g,'' ).replace(/"/g,"").split(", ");
-            finalArr = frencharr.filter(uniqArr);
+            finalArr = frencharr.filter(uniqArr)
             document.getElementsByClassName("myarr")[0].innerHTML = finalArr
+            // $(".homeContent").append(result2)
+
+
+
+
             // $(".homeContent").append(result2)
             // const rsltBorder = document.getElementsByClassName("resultborder")[0];
             // rsltBorder.addEventListener("mouseover", showIcons, false)
@@ -297,8 +324,37 @@
               $( this ).find( ".stuff" ).css( "visibility", "hidden" );
              }
            );
-         }
-         });
+
+
+            setTimeout(function(){
+            const thing = document.getElementsByClassName("myurl")[0].innerText;
+            const home = document.getElementsByClassName("homeContent")[0];
+
+            let finalfrench = document.getElementsByClassName("myarr")[0].innerHTML;
+            const exmpls = document.getElementsByClassName("myurl")[0];
+            const replaceHL = document.getElementsByClassName("resultcut");
+
+
+            let n = thing.search(inputTxt);
+            let l = n + inputTxt.length;
+
+            // home.innerHTML = thing.substring(0, n) + '<span style="font-style: italic">' + thing.substring(n, l) + '</span>' + thing.substring(l);
+            // t = exmpls.innerHTML
+            //
+            // tn = t.replace(new RegExp(inputTxt, 'g'), "<span style='background-color:rgba(255,255,0,0.3)'>" + inputTxt + "</span>")
+            // exmpls.innerHTML = tn
+
+
+
+
+
+
+            voiceFunc();
+
+          }, 3000);
+
+        }
+        });
 
       function addFavorite(name, trnslt) {
         $.ajax({

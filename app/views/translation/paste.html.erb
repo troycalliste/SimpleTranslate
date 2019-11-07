@@ -1,14 +1,43 @@
+<div id="mySidenav" class="sidenav">
+  <div class="navImg"><%= image_tag("logo.png") %></div>
+  <div class="navW">
+   <a class="alink" href="#">About Simple Translate</a>
+   <a class="tlink" href="#">Translator</a>
+   <a class="rlink" href="#">References</a>
+   <a class="alink" href="#">Paste</a>
+   <a class="alink" href="#">Flashcards</a>
+  </div>
+</div>
+
+
 <div class="midset">
   <div class="refnav">
     <div class="refavail">
       Voice output available for: <% Language.where(speak: true).each do |lang| %><span class="refspeak refspeakCodes"><%="#{lang.code}" %></span>
             <% end %>
     </div>
-    <div class="refmenu"><i class="fas fa-ellipsis-h"></i></div>
+    <div class="refmenu1"><i class="fas fa-ellipsis-h"></i></div>
   </div>
 
 
-  <div class="pastelogo"><div class="hattrick"><a href="http://localhost:3000/translation/paste"><span class="plogo1">Simple</span><span class="plogo2">Translate</span></a></div>
+  <div class="pastelogo"><div class="hattrick"><a href="http://localhost:3000/static_pages/reference"><span class="plogo1">Simple</span><span class="plogo2">Translate</span></a></div>
+  <div class="logged">
+     <% if current_user %>
+        <i class="fas fa-user"></i> <%= @using %>
+        <div class="usermenu">
+        <ul class="ulpaste">
+          <li><i class="fas fa-user"></i><%= link_to "Profile"%></li>
+          <li><i class="fas fa-home"></i><%= link_to "Home"%></li>
+          <li><i class="fas fa-history"></i><%= link_to "History"%></li>
+          <li><i class="fas fa-heart"></i><%= link_to "Favorites"%></li>
+          <li><i class="fas fa-heart"></i><%= link_to "Sign out", sessions_path %></li>
+
+        </ul>
+       </div>
+     <% else %>
+     <%= link_to "Login With Google", login_path %>
+     <% end %>
+  </div>
 </div>
 
 
@@ -109,12 +138,18 @@
  </div> -->
 
 <script>
+const loggedUser = document.getElementsByClassName("logged")[0];
+const userMenu = document.getElementsByClassName("usermenu")[0];
+const refMenu1 = document.getElementsByClassName('refmenu1')[0];
+const nav = document.getElementsByClassName("sidenav")[0];
+let toggled = false
 $(document).ready(function() {
 let sub = document.getElementsByClassName('clc')[0];
 let box = document.getElementsByClassName('colOne')[0];
 let box2 = document.getElementsByClassName('colTwo')[0];
 let red = document.getElementsByClassName('pasteBox')[0];
 const btnnn = document.getElementsByClassName('btnnn')[0];
+
 const oneSelect = document.getElementById("oneSelect1");
 const twoSelect = document.getElementById("twoSelect1");
 const textbox = document.getElementById("pasteBtn");
@@ -143,7 +178,16 @@ var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.r
 // Blink engine detection
 var isBlink = (isChrome || isOpera) && !!window.CSS;
 
-
+loggedUser.addEventListener('click', showMenu, false)
+function showMenu() {
+   if (toggled == false) {
+   userMenu.style.display = "block"
+   toggled = true;
+ } else {
+   userMenu.style.display = "none"
+   toggled = false
+ }
+}
 
 function chrome() {
   if (!(isChrome)) {
@@ -403,6 +447,16 @@ str = oneSelect.options[oneSelect.selectedIndex].text
 }
 
 
-
+refMenu1.addEventListener("click", showNav, false)
+function showNav() {
+ nav.style.width = "250px"
+ refMenu1.addEventListener("click", closeNav, false)
+}
+function closeNav() {
+  // console.log("workddd")
+ nav.style.width = "0px"
+ refMenu1.removeEventListener("click", closeNav, false)
+ // chooseWrap.style.display = "none";
+}
 // restclient is better
 </script>

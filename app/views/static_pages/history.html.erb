@@ -1,17 +1,62 @@
+<div id="mySidenav" class="sidenav">
+  <div class="navImg"><%= image_tag("logo.png") %></div>
+  <div class="navW">
+   <a class="alink" href="#">About Simple Translate</a>
+   <a class="tlink" href="#">Translator</a>
+   <a class="rlink" href="#">References</a>
+   <a class="alink" href="#">Paste</a>
+   <a class="alink" href="#">Flashcards</a>
+  </div>
+</div>
 <div class="histnv">
-<% if signed_in? %>
 
-  <div class="hist"><%= current_user.email %>
-    <%= @ref.count %>
+<div class="refnav">
+<div class="refavail">
+    Voice output available for: <% Language.where(speak: true).each do |lang| %><span class="refspeak refspeakCodes"><%="#{lang.code}" %></span>
+          <% end %>
+</div>
+<div class="refmenu"><i class="fas fa-ellipsis-h"></i></div>
+</div>
+<div class="reflogo"><div class="hattrick"><a href="http://localhost:3000/static_pages/reference"><span class="logo1">Simple</span><span class="logo2">Translate</span></a></div>
+<% if signed_in? %>
+<div class="logged"><i class="fas fa-user"></i> <%= @using %>
+  <div class="usermenu">
+    <ul class="ulpaste">
+      <li><i class="fas fa-user"></i><%= link_to "Profile"%></li>
+      <li><i class="fas fa-home"></i><%= link_to "Home"%></li>
+      <li><i class="fas fa-history"></i><%= link_to "History"%></li>
+      <li><i class="fas fa-heart"></i><%= link_to "Favorites"%></li>
+
+    </ul>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+  <div class="hist">
+
+    <span class="showing">
+      Showing 25 of <div class="rescount"><%= @num %></div> entries.
+    </span>
+
   <% @ref.each do |v| %>
   <div class="histrep">
   <div class="histwrap">
       <div class="histmain"><%= v.name %></div>
+      <div class="histsmallarrw"> > </div>
+      <div class="histsmalldefs"><%= v.translation  if @favorites %></div>
       <% v.definitions.limit(3).each do |d| %>
       <div class="histsmalldefs"><%= d.name %></div>
           <% end %>
 
       </div>
+      <div class="histsmalldate"><%= v.created_at.strftime("%FT") %></div>
       </div>
         <!-- <br> -->
 
@@ -20,32 +65,41 @@
 <% end %>
 <br>
 <div class="pag">
-   <%= @num %>
+
 
   <% (1..@divnum).each do |n| %>
-  <span class="pagbase"><%= n %></span>
+  <div class="pagbase"><%= n %></div>
   <% end %>
 </div>
-
-<%= @divnum %>
 </div> <!-- histnv -->
-
-
 
 <script>
   const rep = document.getElementsByClassName("histrep")[0]
   const rep1 = document.getElementsByClassName("histrep")[1]
 
+  $( document ).ready(function() {
+    x = $(".histrep").slice(0, 24)
+    $( x ).css("display", "flex")
+    fir = $(".pagbase").first()
+    $( fir ).css("background-color", "blue")
+    $( fir ).css("color", "white")
+});
+
 
 $(".pagbase").click(function() {
+    $(".pagbase").css("background-color", "#FFFAF0")
+    $(".pagbase").css("color", "black")
+    $(this).css("background-color", "blue")
+    $(this).css("color", "white")
     index = $(this).index() + 1
     console.log(index)
     // just add one
-    num2 =  index * 25
-    num1 = num2 - 24;
+    num2 =  (index * 25) - 1;
+    num1 = (num2 - 24) ;
     vis = $(".histrep").slice(num1, num2)
-    $(".histrep").css("visibility", "hidden")
-    $( vis ).css("visibility", "visible")
+    console.log(num1, num2)
+    $(".histrep").css("display", "none")
+    $( vis ).css("display", "flex")
 })
 $(".pagbase").each(function( index ) {
   console.log( index + 1);// we have each number here

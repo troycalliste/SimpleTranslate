@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  # skip_before_filter :verify_signed_out_user
+  skip_before_action :verify_authenticity_token
+
   def googleAuth
 
     access_token = request.env["omniauth.auth"] #token from goog server
@@ -21,8 +24,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
-
+    redirect_to root_path, notice: "Logged out!"
   end
 
 end
