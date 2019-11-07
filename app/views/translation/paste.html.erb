@@ -289,13 +289,13 @@ function parseTxt() {
    success: function(response)
       { if (response) {
           let result = $(response).find(".arrList");
-          console.log(response);
+          console.log($(result).html());
           // result2 = $(response).find(".innerList");
           // refContain.style.display = "block";
           // newclss = document.getElementsByClassName("topnav")[0].className = "topnav " + str2.toLowerCase();
   // $(".topnav").css("background-size", "2400px 1300px")
   // $(".topnav").css("background-position", " center")
-         $(".topset").empty().append(result)
+         $(".topset").empty().append(response)
          // $(".centerList").append(result)
          }
          const dbtn = document.getElementById("defBtn");
