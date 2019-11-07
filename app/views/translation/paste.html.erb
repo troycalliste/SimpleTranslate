@@ -282,8 +282,9 @@ function parseTxt() {
   // red.style.display = "none";
   // box2.style.marginTop = "0px"
   console.log(enfrlinks)
+  console.log("arr 2 is " + arr2)
   $.ajax({
-   url: "http://aqueous-bastion-46938.herokuapp.com/translation/flash",
+   url: "flash",
    data: { data_value: enfrlinks, arr2: arr2 },
    success: function(response)
       { if (response) {
