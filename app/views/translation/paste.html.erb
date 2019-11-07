@@ -288,7 +288,7 @@ function parseTxt() {
    data: { data_value: enfrlinks, arr2: arr2 },
    success: function(response)
       { if (response) {
-          let result = $(response).find(".arrList");
+          let result = $(response).find(".arrLi");
           console.log($(result).text() + "woo");
           // result2 = $(response).find(".innerList");
           // refContain.style.display = "block";
