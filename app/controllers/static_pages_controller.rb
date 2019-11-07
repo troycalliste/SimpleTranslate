@@ -25,8 +25,6 @@ class StaticPagesController < ApplicationController
     @divnum = (current_user.references.count / 25.0).to_f.ceil
     @using =  current_user.email
 
-
-
   end
   def favorite
     @favorites = current_user.favorites
@@ -86,9 +84,11 @@ class StaticPagesController < ApplicationController
     @arr = arr
     @frarr = frarr
     @harr = harr.uniq
-    @reference = current_user.references.create(name: searchText)
-    @harr.each do |a|
-      @reference.definitions.create(name: a)
+    if current_user
+      @reference = current_user.references.create(name: searchText)
+      @harr.each do |a|
+        @reference.definitions.create(name: a)
+      end
     end
 
 
