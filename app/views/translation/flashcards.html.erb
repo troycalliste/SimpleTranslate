@@ -190,9 +190,9 @@ button.removeEventListener('click', doThis4, false);
    data: { data_value: enfrlinks },
    success: function(response)
       { if (response) {
-				console.log(had success)
+				
 				  toggled = false;
-          let result = $(response).find(".arrList2");
+          let result = $(response).filter(".arrList2");
 
 				  // let oneWord = $(result).children().first()
 					let allWords = $(result).children()
