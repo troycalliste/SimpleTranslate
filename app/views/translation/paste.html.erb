@@ -288,7 +288,7 @@ function parseTxt() {
    data: { data_value: enfrlinks, arr2: arr2 },
    success: function(response)
       { if (response) {
-        setTimeout(function(){let result = $(response).find(".arrList")}, 2000);
+        setTimeout(function(){let result = $(response).find(".arrList")
 
           // result2 = $(response).find(".innerList");
           // refContain.style.display = "block";
@@ -297,6 +297,7 @@ function parseTxt() {
   // $(".topnav").css("background-position", " center")
           console.log("done")
          $(".topset").empty().append(result)
+         }, 2000);
          // $(".centerList").append(result)
          }
          const dbtn = document.getElementById("defBtn");
