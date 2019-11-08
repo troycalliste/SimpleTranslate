@@ -112,11 +112,10 @@ function doThis() {
 //
 // }
 function doThis2() {
-
  // this.className += " hover";
-
-
 }
+
+
 function doThis3() {
  $(".smallcard").animate({
 
@@ -191,6 +190,7 @@ button.removeEventListener('click', doThis4, false);
    data: { data_value: enfrlinks },
    success: function(response)
       { if (response) {
+				console.log(had success)
 				  toggled = false;
           let result = $(response).find(".arrList2");
 
