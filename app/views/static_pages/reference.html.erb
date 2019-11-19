@@ -2,17 +2,13 @@
   <div class="navImg"><%= image_tag("logo.png") %></div>
   <div class="navW">
    <a class="alink" href="#">About Simple Translate</a>
-   <a class="tlink" href="#">Translator</a>
-   <a class="rlink" href="#">References</a>
-   <a class="alink" href="#">Paste</a>
-   <a class="alink" href="#">Flashcards</a>
+   <a class="tlink" href="http://localhost:3000/static_pages/translate">Translator</a>
+   <a class="rlink" href="http://localhost:3000/static_pages/reference">References</a>
+   <a class="alink" href="http://localhost:3000/translation/paste">Paste</a>
+   <a class="alink" href="http://localhost:3000/translation/flashcards">Flashcards</a>
   </div>
 </div>
 <div class="wrapALL">
-
-
-
-
 <div class="lownav">
   <div class="refnav">
     <div class="refavail">
@@ -127,8 +123,9 @@
 
           </div>
          <% end %>
+         <% else %>
+         <%= react_component("HelloWorld", { greeting: "Sign in to see recent searches" }) %>
          <% end %>
-
        </div>
        </div>
 </div>
