@@ -10,6 +10,8 @@ class StaticPagesController < ApplicationController
   end
   def about
   end
+  def google699fadbb1ea657ad
+  end
   def reference
     if current_user
       @using = current_user.email

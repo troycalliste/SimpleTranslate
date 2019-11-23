@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'translation/flash'
   get 'translation/flashcards'
   get 'auth/:provider/callback', to: 'sessions#googleAuth'
+  get "/google699fadbb1ea657ad.html", to: 'static_pages#google699fadbb1ea657ad'
   get 'auth/failure', to: redirect('/')
   get "/login", to: redirect("/auth/google_oauth2")
   get "/sessions", to: 'sessions#destroy'
