@@ -176,7 +176,7 @@ function translateInput() {
   console.log(outLang)
   setTimeout(function() {
   $.ajax({
-        url: "http://localhost:3000/static_pages/translate",
+        url: "http://aqueous-bastion-46938.herokuapp.com/static_pages/translate",
         data: {text: inpText, lang: outLang },
         success: function(response){
           console.log("had success")
