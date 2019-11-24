@@ -195,7 +195,7 @@ function translateInput() {
 
 
 
-          $(rslt).empty().append($(newText).text());
+          $(rslt1).empty().append($(newText).text());
           let sayVoice = $(spkVoice).text();
           $(".detected").empty().append($(detect).text());
           $(".qk").empty().append($(spkIcon));
@@ -209,7 +209,7 @@ function translateInput() {
 
           }
           rslt1.style.background = "#D3EBF4"
-          translateContent.style.height = rslt.offsetHeight + 48 + "px";
+          translateContent1.style.height = rslt1.offsetHeight + 48 + "px";
           // console.log(rslt.offsetHeight)
 
         } else {
