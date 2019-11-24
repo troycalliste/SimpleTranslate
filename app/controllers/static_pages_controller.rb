@@ -132,11 +132,7 @@ def translate
   project_id = ENV["CLOUD_PROJECT_ID"]
   # Instantiates a client
  translate = Google::Cloud::Translate.new project: project_id
- storage = Google::Cloud::Storage.new project: project_id,
-                                     keyfile: Google::Auth::GCECredentials.new
- storage.buckets.each do |bucket|
-  puts bucket.name
- end
+
 # The text to translate
   @currentLang = Language.find_by(name: outLang)
   text = @info
