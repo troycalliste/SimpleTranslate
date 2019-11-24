@@ -12,7 +12,7 @@
 <div class="lownav">
   <div class="refnav">
     <div class="refavail">
-      <%= @say %>
+      <%= "#{@say} is env "%>
       Voice output available for: <% Language.where(speak: true).each do |lang| %><span class="refspeak refspeakCodes"><%="#{lang.code}" %></span>
             <% end %>
     </div>
