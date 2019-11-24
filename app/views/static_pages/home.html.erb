@@ -95,7 +95,7 @@
 <!-- </div> -->
 <script>
 
-  const refSearch = document.getElementsByClassName("refSearch")[0];
+  const refSearch1 = document.getElementsByClassName("refSearch")[0];
   const oneSelect = document.getElementById("oneSelect");
   const twoSelect = document.getElementById("twoSelect");
   const chooseLang = document.getElementById("slctLang");
@@ -234,7 +234,7 @@ function translateInput() {
           v2 = $('#twoSelect').val();
       $('#oneSelect').val(v2);
       $('#twoSelect').val(v1);
-      refSearch.click();
+      refSearch1.click();
   });
 
 // })
@@ -259,10 +259,10 @@ $('#swap').click(function () {
        return
    } else if (event.keyCode === 13) {
        event.preventDefault();
-       refSearch.click();
+       refSearch1.click();
       }
     });
-    refSearch.addEventListener("click", function(event){
+    refSearch1.addEventListener("click", function(event){
      if (input.value == '' || input.value == this.defaultValue) {
        return
      }
