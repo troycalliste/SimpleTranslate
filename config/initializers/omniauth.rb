@@ -9,3 +9,5 @@ end
 #                            config["sB2P4KUhXohuWOzZ8elD3cg8"],
 #                            image_size: 150
 # end
+
+# project_id = "Your Google Cloud project ID"

@@ -2,6 +2,7 @@ class StaticPagesController < ApplicationController
   require 'openssl'
   require 'open-uri'
   require 'restclient'
+  require "google/cloud/storage"
   helper_method :current_user
 
 
@@ -111,6 +112,17 @@ def delfavorite
   favorite.destroy
 end
 def translate
+
+
+# If you don't specify credentials when constructing the client, the client
+# library will look for credentials in the environment.
+
+
+# Make an authenticated API request
+
+
+
+
    @info = params[:text]
    outLang = params[:lang]
   # @info = "Could be true"
@@ -118,6 +130,10 @@ def translate
   project_id = ENV["CLOUD_PROJECT_ID"]
   # Instantiates a client
  translate = Google::Cloud::Translate.new project: project_id
+ storage = Google::Cloud::Storage.new project: project_id
+ storage.buckets.each do |bucket|
+  puts bucket.name
+ end
 # The text to translate
   @currentLang = Language.find_by(name: outLang)
   text = @info
