@@ -132,7 +132,7 @@ def translate
   # outLang = "French"
   project_id = 'simple-translate-1567281332603'
   # Instantiates a client
-  translate = Google::Cloud::Translate.new project: project_id, keyfile: 'config/SimpleTranslate-a6b5c864211a.json'
+  translate = Google::Cloud::Translate.new project: project_id, keyfile: '/config/simpletranslate.json'
 
 # The text to translate
   @currentLang = Language.find_by(name: outLang)
