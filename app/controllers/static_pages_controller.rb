@@ -16,7 +16,7 @@ class StaticPagesController < ApplicationController
   def google699fadbb1ea657ad
   end
   def reference
-    @say = ENV["CLOUD_PROJECT_ID"]
+    @say = "simple-translate-1567281332603"
     if current_user
       @using = current_user.email
       @user = current_user
@@ -130,7 +130,7 @@ def translate
    outLang = params[:lang]
   # @info = "Could be true"
   # outLang = "French"
-  project_id = ENV["CLOUD_PROJECT_ID"]
+  project_id = "simple-translate-1567281332603"
   # Instantiates a client
   translate = Google::Cloud::Translate.new project: project_id
 
