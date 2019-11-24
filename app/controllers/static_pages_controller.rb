@@ -131,7 +131,7 @@ def translate
   # Instantiates a client
  translate = Google::Cloud::Translate.new project: project_id
  storage = Google::Cloud::Storage.new project: project_id
- storage.buckets.each do |bucket|
+ storage.buckets.each do |bucket|  
   puts bucket.name
  end
 # The text to translate
