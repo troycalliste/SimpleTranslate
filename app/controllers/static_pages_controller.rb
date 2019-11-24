@@ -128,9 +128,9 @@ def translate
 
    @info = params[:text]
    outLang = params[:lang]
-  @info = "Could be true"
+  # @info = "Could be true"
   # outLang = "French"
-  # project_id = 'simple-translate-1567281332603'
+  project_id = 'simple-translate-1567281332603'
   # Instantiates a client
   translate = Google::Cloud::Translate.new project_id: project_id, keyfile: File.open('config/simpletranslate.json','r')
 
