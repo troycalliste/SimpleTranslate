@@ -96,39 +96,39 @@
 <script>
 
   const refSearch1 = document.getElementsByClassName("refSearch")[0];
-  const oneSelect = document.getElementById("oneSelect");
-  const twoSelect = document.getElementById("twoSelect");
-  const chooseLang = document.getElementById("slctLang");
-  const button = document.getElementsByClassName("flashcardInput")[0];
-  const translatebox = document.getElementById("translateBox");
-  const rslt = document.getElementsByClassName("resultText")[0];
-  const chooseWrap = document.getElementsByClassName("wrapList")[0];
-  const nav = document.getElementsByClassName("sidenav")[0];
-  const menuB = document.getElementsByClassName("fondIcn")[0];
-  const wrpall = document.getElementsByClassName("wrapALL")[0];
-  const rsltcon = document.getElementsByClassName("resultContent")[0];
-  let running = false
-  const translateContent = document.getElementsByClassName("translateContent")[0];
+  const oneSelect1 = document.getElementById("oneSelect");
+  const twoSelect1 = document.getElementById("twoSelect");
+  const chooseLang1 = document.getElementById("slctLang");
+  const button1 = document.getElementsByClassName("flashcardInput")[0];
+  const translatebox1 = document.getElementById("translateBox");
+  const rslt1 = document.getElementsByClassName("resultText")[0];
+  const chooseWrap1 = document.getElementsByClassName("wrapList")[0];
+  const nav1 = document.getElementsByClassName("sidenav")[0];
+  const menuB1 = document.getElementsByClassName("fondIcn")[0];
+  const wrpall1 = document.getElementsByClassName("wrapALL")[0];
+  const rsltcon1 = document.getElementsByClassName("resultContent")[0];
+  let running1 = false
+  const translateContent1 = document.getElementsByClassName("translateContent")[0];
 
 
   function chooseTL() {
     console.log("heho")
-    if (chooseWrap.style.display == "block") {
-      chooseWrap.style.display = "none";
+    if (chooseWrap1.style.display == "block") {
+      chooseWrap1.style.display = "none";
     } else {
     console.log("hee");
-   chooseWrap.style.display = "block";
-   chooseWrap.style.zIndex = "999";
-   setTimeout(function(){wrpall.addEventListener("click", closeNav, false)}, 500)
+   chooseWrap1.style.display = "block";
+   chooseWrap1.style.zIndex = "999";
+   setTimeout(function(){wrpall1.addEventListener("click", closeNav, false)}, 500)
     }
 }
-  chooseLang.addEventListener("click", chooseTL, false);
+  chooseLang1.addEventListener("click", chooseTL, false);
 
   $('.row').click(function () {
-  selectedLang = $(this).text();
+  selectedLang1 = $(this).text();
   //so well make this default of english
-  chooseLang.innerHTML = selectedLang;
-  chooseWrap.style.display = "none";
+  chooseLang1.innerHTML = selectedLang1;
+  chooseWrap1.style.display = "none";
   translateInput();
   });
 
@@ -147,25 +147,25 @@
 //   let oneLang = oneSelect.options[ oneSelect.selectedIndex ].value
 //   let twoLang = twoSelect.options[ twoSelect.selectedIndex ].value
 
-translatebox.addEventListener("input", translateInput, false)
-menuB.addEventListener("click", showNav, false)
+translatebox1.addEventListener("input", translateInput, false)
+menuB1.addEventListener("click", showNav, false)
 function showNav() {
- nav.style.width = "250px"
- wrpall.addEventListener("click", closeNav, false)
+ nav1.style.width = "250px"
+ wrpall1.addEventListener("click", closeNav, false)
 }
 function closeNav() {
   console.log("workddd")
- nav.style.width = "0px"
+ nav1.style.width = "0px"
 
- wrpall.removeEventListener("click", closeNav, false)
- chooseWrap.style.display = "none";
+ wrpall1.removeEventListener("click", closeNav, false)
+ chooseWrap1.style.display = "none";
 
 }
 function spk(voice) {
   console.log("speaking now")
-  chooseLang.innerText
+  chooseLang1.innerText
   spkText = document.getElementsByClassName("resultText")[0].innerText
-  responsiveVoice.speak(spkText, voice)
+  responsiveVoice1.speak(spkText, voice)
 }
 function translateInput() {
   // translatebox.removeEventListener("input", translateInput, false)
@@ -208,12 +208,12 @@ function translateInput() {
            }
 
           }
-          rslt.style.background = "#D3EBF4"
+          rslt1.style.background = "#D3EBF4"
           translateContent.style.height = rslt.offsetHeight + 48 + "px";
           // console.log(rslt.offsetHeight)
 
         } else {
-          rsltcon.style.background = "white";
+          rsltcon1.style.background = "white";
         };
           // translatebox.addEventListener("input", translateInput, false)
         },
@@ -252,9 +252,9 @@ $('#swap').click(function () {
 
 
 
-  const input = document.getElementById("inputTxt");
+  const input1 = document.getElementById("inputTxt");
 
-   input.addEventListener("keyup", function(event) {
+   input1.addEventListener("keyup", function(event) {
      if (this.value == '' || this.value == this.defaultValue) {
        return
    } else if (event.keyCode === 13) {
@@ -267,16 +267,16 @@ $('#swap').click(function () {
        return
      }
      event.preventDefault()
-     const inputTxt = document.getElementById("inputTxt").value;
+     const inputTxt1 = document.getElementById("inputTxt").value;
 
-     const refContain = document.getElementsByClassName("homeContent")[0];
-     const tlContain = document.getElementsByClassName("translateContent")[0];
-     const wrdList = document.getElementsByClassName("wordList")[0];
-     const parsedTxt = inputTxt.replace(/\s+/g, '+');
-     const str = oneSelect.options[oneSelect.selectedIndex].text;
-     const str2 = twoSelect.options[twoSelect.selectedIndex].text;
+     const refContain1 = document.getElementsByClassName("homeContent")[0];
+     const tlContain1 = document.getElementsByClassName("translateContent")[0];
+     const wrdList1 = document.getElementsByClassName("wordList")[0];
+     const parsedTxt1 = inputTxt.replace(/\s+/g, '+');
+     const str1 = oneSelect1.options[oneSelect1.selectedIndex].text;
+     const str21= twoSelect1.options[twoSelect1.selectedIndex].text;
      const reverso = "https://context.reverso.net/translation/";
-     const translateUrl = reverso + str.toLowerCase() + "-" + str2.toLowerCase() + "/" + parsedTxt;
+     const translateUrl = reverso + str1.toLowerCase() + "-" + str21.toLowerCase() + "/" + parsedTxt1;
      console.log(translateUrl)
       // console.log(translateUrl);
       // $('.homeContent').load('grabber.php?url='+ translateUrl);
@@ -299,8 +299,8 @@ $('#swap').click(function () {
              result = $(response).find(".myurl");
              result2 = $(response).find(".innerList");
 
-             refContain.style.display = "block";
-             tlContain.style.display = "none";
+             refContain1.style.display = "block";
+             tlContain1.style.display = "none";
              newclss = document.getElementsByClassName("topnav")[0].className = "topnav " + str2.toLowerCase();
 
 
@@ -309,7 +309,7 @@ $('#swap').click(function () {
              // $(".topnav").css("background-size", "2400px 1300px")
              // $(".topnav").css("background-position", " center")
 
-            wrdList.style.display = "block";
+            wrdList1.style.display = "block";
 
             $(".homeContent").empty().append(result)
             $(".wordList").empty().append(result2)
