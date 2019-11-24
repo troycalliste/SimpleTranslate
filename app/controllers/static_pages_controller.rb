@@ -2,6 +2,8 @@ class StaticPagesController < ApplicationController
   require 'openssl'
   require 'open-uri'
   require 'restclient'
+  require "googleauth"
+  require "google/cloud/env"
   require "google/cloud/storage"
   helper_method :current_user
 
@@ -130,8 +132,9 @@ def translate
   project_id = ENV["CLOUD_PROJECT_ID"]
   # Instantiates a client
  translate = Google::Cloud::Translate.new project: project_id
- storage = Google::Cloud::Storage.new project: project_id
- storage.buckets.each do |bucket|  
+ storage = Google::Cloud::Storage.new project: project_id,
+                                     keyfile: Google::Auth::GCECredentials.new
+ storage.buckets.each do |bucket|
   puts bucket.name
  end
 # The text to translate
