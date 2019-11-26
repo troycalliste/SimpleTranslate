@@ -17,7 +17,7 @@
     Voice output available for: <% Language.where(speak: true).each do |lang| %><span class="refspeak refspeakCodes"><%="#{lang.code}" %></span>
           <% end %>
 </div>
-<div class="refmenu">Other Simple Translate tools <i class="fas fa-ellipsis-h"></i></div>
+ <div class="refmenu"><i class="fas fa-ellipsis-h"></i></div>
 </div>
 
 
@@ -45,7 +45,7 @@
         <div class="dtc"><div class="detected">Detect Language</div></div>
         </div>
         <div class="second">
-          Translate to <strong id="slctLang">French</strong>
+          Translate to <strong id="slctLang">French</strong> (Click to change)
 
         </div>
     </div>
@@ -81,9 +81,6 @@
   <% end %>
   <%= button_to 'Sign out', sign_out_path, method: :delete %>
 
-<% else %>
-<p> Welcome, please login to continue <a href="/auth/google_oauth2">Sign in with Google</a></p>
-<%= link_to 'Sign in', sign_in_path %>
 <% end %>
 </div>
 

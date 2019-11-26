@@ -12,11 +12,10 @@
 <div class="lownav">
   <div class="refnav">
     <div class="refavail">
-      <%= "#{@say} is env "%>
       Voice output available for: <% Language.where(speak: true).each do |lang| %><span class="refspeak refspeakCodes"><%="#{lang.code}" %></span>
-            <% end %>
+            <% end %>   Use Menu button to navigate to other tools
     </div>
-    <div class="refmenu"><i class="fas fa-ellipsis-h"></i></div>
+    <div class="refmenu"> <i class="fas fa-ellipsis-h"></i></div>
   </div>
 <div class="reflogo"><div class="hattrick"><a href="http://aqueous-bastion-46938.herokuapp.com/"><span class="logo1">Simple</span><span class="logo2">Translate</span></a></div>
 
