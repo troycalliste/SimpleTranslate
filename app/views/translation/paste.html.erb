@@ -138,7 +138,7 @@
  </div> -->
 
 <script>
-const loggedUser = document.getElementsByClassName("logged")[0];
+const loggedUser1 = document.getElementsByClassName("logged")[0];
 const userMenu = document.getElementsByClassName("usermenu")[0];
 const refMenu1 = document.getElementsByClassName('refmenu1')[0];
 const nav = document.getElementsByClassName("sidenav")[0];
@@ -178,7 +178,7 @@ var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.r
 // Blink engine detection
 var isBlink = (isChrome || isOpera) && !!window.CSS;
 
-loggedUser.addEventListener('click', showMenu, false)
+loggedUser1.addEventListener('click', showMenu, false)
 function showMenu() {
    if (toggled == false) {
    userMenu.style.display = "block"
